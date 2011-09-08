@@ -38,10 +38,10 @@
             this.toolResetView = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolMoveObject = new System.Windows.Forms.ToolStripButton();
-            this.gl = new OpenTK.GLControl();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolAutoupdate = new System.Windows.Forms.ToolStripButton();
             this.toolStripClear = new System.Windows.Forms.ToolStripButton();
+            this.gl = new OpenTK.GLControl();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +130,28 @@
             this.toolMoveObject.Text = "Move object";
             this.toolMoveObject.Click += new System.EventHandler(this.toolMoveObject_Click);
             // 
+            // toolAutoupdate
+            // 
+            this.toolAutoupdate.Checked = true;
+            this.toolAutoupdate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolAutoupdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolAutoupdate.Image = ((System.Drawing.Image)(resources.GetObject("toolAutoupdate.Image")));
+            this.toolAutoupdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAutoupdate.Name = "toolAutoupdate";
+            this.toolAutoupdate.Size = new System.Drawing.Size(74, 22);
+            this.toolAutoupdate.Text = "Autoupdate";
+            this.toolAutoupdate.Click += new System.EventHandler(this.toolAutoupdate_Click);
+            // 
+            // toolStripClear
+            // 
+            this.toolStripClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripClear.Image = ((System.Drawing.Image)(resources.GetObject("toolStripClear.Image")));
+            this.toolStripClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripClear.Name = "toolStripClear";
+            this.toolStripClear.Size = new System.Drawing.Size(38, 22);
+            this.toolStripClear.Text = "Clear";
+            this.toolStripClear.Click += new System.EventHandler(this.toolStripClear_Click);
+            // 
             // gl
             // 
             this.gl.BackColor = System.Drawing.Color.Black;
@@ -150,27 +172,6 @@
             // 
             this.timer.Interval = 250;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // toolAutoupdate
-            // 
-            this.toolAutoupdate.Checked = true;
-            this.toolAutoupdate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolAutoupdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolAutoupdate.Image = ((System.Drawing.Image)(resources.GetObject("toolAutoupdate.Image")));
-            this.toolAutoupdate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAutoupdate.Name = "toolAutoupdate";
-            this.toolAutoupdate.Size = new System.Drawing.Size(74, 22);
-            this.toolAutoupdate.Text = "Autoupdate";
-            // 
-            // toolStripClear
-            // 
-            this.toolStripClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripClear.Image = ((System.Drawing.Image)(resources.GetObject("toolStripClear.Image")));
-            this.toolStripClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripClear.Name = "toolStripClear";
-            this.toolStripClear.Size = new System.Drawing.Size(38, 22);
-            this.toolStripClear.Text = "Clear";
-            this.toolStripClear.Click += new System.EventHandler(this.toolStripClear_Click);
             // 
             // ThreeDControl
             // 

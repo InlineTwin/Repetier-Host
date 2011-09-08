@@ -135,7 +135,7 @@ namespace RepetierHost.model
                 long min = ticks / 60000;
                 ticks -= 60000 * min;
                 long sec = ticks / 1000;
-                Main.conn.log("Printjob finished at " + jobFinished.ToShortDateString(),false,3);
+                Main.conn.log("Printjob finished at " + jobFinished.ToShortDateString()+" "+jobFinished.ToShortTimeString(),false,3);
                 StringBuilder s = new StringBuilder();
                 if (hours > 0)
                 {

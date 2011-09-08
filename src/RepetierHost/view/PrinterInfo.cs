@@ -57,5 +57,11 @@ namespace RepetierHost.view
         {
             Hide();
         }
+
+        private void labelFirmwareURL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Main.main.openLink(labelFirmwareURL.Text);
+        }
+
     }
 }

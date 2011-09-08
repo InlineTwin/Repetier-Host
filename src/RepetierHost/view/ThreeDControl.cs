@@ -457,6 +457,7 @@ namespace RepetierHost.view
         private void timer_Tick(object sender, EventArgs e)
         {
             if (!autoupdateable) return;
+            if (toolAutoupdate.Checked == false) return;
             foreach (ThreeDModel m in models)
             {
                 if (m.Changed)
@@ -474,6 +475,11 @@ namespace RepetierHost.view
                 m.Clear();
             }
             gl.Invalidate();
+        }
+
+        private void toolAutoupdate_Click(object sender, EventArgs e)
+        {
+            toolAutoupdate.Checked = !toolAutoupdate.Checked;
         }
     }
 }

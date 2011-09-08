@@ -120,54 +120,54 @@
             this.labelStatus.AutoSize = true;
             this.labelStatus.Location = new System.Drawing.Point(80, 13);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(35, 13);
+            this.labelStatus.Size = new System.Drawing.Size(10, 13);
             this.labelStatus.TabIndex = 7;
-            this.labelStatus.Text = "label7";
+            this.labelStatus.Text = "-";
             // 
             // labelStartTime
             // 
             this.labelStartTime.AutoSize = true;
             this.labelStartTime.Location = new System.Drawing.Point(80, 33);
             this.labelStartTime.Name = "labelStartTime";
-            this.labelStartTime.Size = new System.Drawing.Size(35, 13);
+            this.labelStartTime.Size = new System.Drawing.Size(10, 13);
             this.labelStartTime.TabIndex = 8;
-            this.labelStartTime.Text = "label8";
+            this.labelStartTime.Text = "-";
             // 
             // labelFinishTime
             // 
             this.labelFinishTime.AutoSize = true;
             this.labelFinishTime.Location = new System.Drawing.Point(80, 53);
             this.labelFinishTime.Name = "labelFinishTime";
-            this.labelFinishTime.Size = new System.Drawing.Size(35, 13);
+            this.labelFinishTime.Size = new System.Drawing.Size(10, 13);
             this.labelFinishTime.TabIndex = 8;
-            this.labelFinishTime.Text = "label8";
+            this.labelFinishTime.Text = "-";
             // 
             // labelETA
             // 
             this.labelETA.AutoSize = true;
             this.labelETA.Location = new System.Drawing.Point(80, 73);
             this.labelETA.Name = "labelETA";
-            this.labelETA.Size = new System.Drawing.Size(35, 13);
+            this.labelETA.Size = new System.Drawing.Size(10, 13);
             this.labelETA.TabIndex = 8;
-            this.labelETA.Text = "label8";
+            this.labelETA.Text = "-";
             // 
             // labelTotalLines
             // 
             this.labelTotalLines.AutoSize = true;
             this.labelTotalLines.Location = new System.Drawing.Point(80, 93);
             this.labelTotalLines.Name = "labelTotalLines";
-            this.labelTotalLines.Size = new System.Drawing.Size(35, 13);
+            this.labelTotalLines.Size = new System.Drawing.Size(10, 13);
             this.labelTotalLines.TabIndex = 8;
-            this.labelTotalLines.Text = "label8";
+            this.labelTotalLines.Text = "-";
             // 
             // labelLinesSend
             // 
             this.labelLinesSend.AutoSize = true;
             this.labelLinesSend.Location = new System.Drawing.Point(80, 113);
             this.labelLinesSend.Name = "labelLinesSend";
-            this.labelLinesSend.Size = new System.Drawing.Size(35, 13);
+            this.labelLinesSend.Size = new System.Drawing.Size(10, 13);
             this.labelLinesSend.TabIndex = 8;
-            this.labelLinesSend.Text = "label8";
+            this.labelLinesSend.Text = "-";
             // 
             // JobStatus
             // 

@@ -78,46 +78,47 @@
             this.labelFirmwareURL.AutoSize = true;
             this.labelFirmwareURL.Location = new System.Drawing.Point(121, 64);
             this.labelFirmwareURL.Name = "labelFirmwareURL";
-            this.labelFirmwareURL.Size = new System.Drawing.Size(55, 13);
+            this.labelFirmwareURL.Size = new System.Drawing.Size(10, 13);
             this.labelFirmwareURL.TabIndex = 6;
             this.labelFirmwareURL.TabStop = true;
-            this.labelFirmwareURL.Text = "linkLabel1";
+            this.labelFirmwareURL.Text = "-";
+            this.labelFirmwareURL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelFirmwareURL_LinkClicked);
             // 
             // labelNumExtruder
             // 
             this.labelNumExtruder.AutoSize = true;
             this.labelNumExtruder.Location = new System.Drawing.Point(118, 111);
             this.labelNumExtruder.Name = "labelNumExtruder";
-            this.labelNumExtruder.Size = new System.Drawing.Size(35, 13);
+            this.labelNumExtruder.Size = new System.Drawing.Size(10, 13);
             this.labelNumExtruder.TabIndex = 5;
-            this.labelNumExtruder.Text = "label9";
+            this.labelNumExtruder.Text = "-";
             // 
             // labelProtocol
             // 
             this.labelProtocol.AutoSize = true;
             this.labelProtocol.Location = new System.Drawing.Point(118, 87);
             this.labelProtocol.Name = "labelProtocol";
-            this.labelProtocol.Size = new System.Drawing.Size(35, 13);
+            this.labelProtocol.Size = new System.Drawing.Size(10, 13);
             this.labelProtocol.TabIndex = 5;
-            this.labelProtocol.Text = "label9";
+            this.labelProtocol.Text = "-";
             // 
             // labelFirmware
             // 
             this.labelFirmware.AutoSize = true;
             this.labelFirmware.Location = new System.Drawing.Point(118, 41);
             this.labelFirmware.Name = "labelFirmware";
-            this.labelFirmware.Size = new System.Drawing.Size(35, 13);
+            this.labelFirmware.Size = new System.Drawing.Size(10, 13);
             this.labelFirmware.TabIndex = 5;
-            this.labelFirmware.Text = "label9";
+            this.labelFirmware.Text = "-";
             // 
             // labelMachine
             // 
             this.labelMachine.AutoSize = true;
             this.labelMachine.Location = new System.Drawing.Point(118, 20);
             this.labelMachine.Name = "labelMachine";
-            this.labelMachine.Size = new System.Drawing.Size(35, 13);
+            this.labelMachine.Size = new System.Drawing.Size(10, 13);
             this.labelMachine.TabIndex = 5;
-            this.labelMachine.Text = "label9";
+            this.labelMachine.Text = "-";
             // 
             // label5
             // 
@@ -184,27 +185,27 @@
             this.labelErrorsReceived.AutoSize = true;
             this.labelErrorsReceived.Location = new System.Drawing.Point(118, 65);
             this.labelErrorsReceived.Name = "labelErrorsReceived";
-            this.labelErrorsReceived.Size = new System.Drawing.Size(35, 13);
+            this.labelErrorsReceived.Size = new System.Drawing.Size(10, 13);
             this.labelErrorsReceived.TabIndex = 5;
-            this.labelErrorsReceived.Text = "label9";
+            this.labelErrorsReceived.Text = "-";
             // 
             // labelBytesSend
             // 
             this.labelBytesSend.AutoSize = true;
             this.labelBytesSend.Location = new System.Drawing.Point(118, 43);
             this.labelBytesSend.Name = "labelBytesSend";
-            this.labelBytesSend.Size = new System.Drawing.Size(35, 13);
+            this.labelBytesSend.Size = new System.Drawing.Size(10, 13);
             this.labelBytesSend.TabIndex = 5;
-            this.labelBytesSend.Text = "label9";
+            this.labelBytesSend.Text = "-";
             // 
             // labelLinesSend
             // 
             this.labelLinesSend.AutoSize = true;
             this.labelLinesSend.Location = new System.Drawing.Point(118, 20);
             this.labelLinesSend.Name = "labelLinesSend";
-            this.labelLinesSend.Size = new System.Drawing.Size(35, 13);
+            this.labelLinesSend.Size = new System.Drawing.Size(10, 13);
             this.labelLinesSend.TabIndex = 5;
-            this.labelLinesSend.Text = "label9";
+            this.labelLinesSend.Text = "-";
             // 
             // label8
             // 
