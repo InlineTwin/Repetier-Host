@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B118044A-6AC1-407D-8CE9-A624810BEE0C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RepetierHost</RootNamespace>
+    <AssemblyName>RepetierHost</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>4D8B5380D7CB00A0A95794AAA4F075AF1C54B30F</ManifestCertificateThumbprint>
+    <ManifestKeyFile>RepetierHost_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>repetier-logo32.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>Repetier-Host</ProductName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4" />
+    <Reference Include="OpenTK.Compatibility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
+    <Reference Include="OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GraphLib\BackBuffer.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\EEPROMParameter.cs" />
+    <Compile Include="model\GCode.cs" />
+    <Compile Include="model\GCodeAnalyzer.cs" />
+    <Compile Include="model\GCodeVisual.cs" />
+    <Compile Include="model\LogLine.cs" />
+    <Compile Include="model\PrinterConnection.cs" />
+    <Compile Include="model\Printjob.cs" />
+    <Compile Include="model\ProtectedSerialPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphEx.designer.cs">
+      <DependentUpon>PlotterGraphEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphPaneEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphPaneEx.designer.cs">
+      <DependentUpon>PlotterGraphPaneEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphPropertiesForm.designer.cs">
+      <DependentUpon>PlotterGraphPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphLib\PlotterGraphTypes.cs" />
+    <Compile Include="GraphLib\PrecisionTimer.cs" />
+    <Compile Include="GraphLib\PrintPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphLib\PrintPreviewForm.designer.cs">
+      <DependentUpon>PrintPreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\STL.cs" />
+    <Compile Include="model\ThreeDModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphLib\PlotterGraphEx.resx">
+      <DependentUpon>PlotterGraphEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphLib\PlotterGraphPaneEx.resx">
+      <DependentUpon>PlotterGraphPaneEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphLib\PlotterGraphPropertiesForm.resx">
+      <DependentUpon>PlotterGraphPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphLib\PrintPreviewForm.resx">
+      <DependentUpon>PrintPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EEPROMRepetier.resx">
+      <DependentUpon>EEPROMRepetier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormPrinterSettings.resx">
+      <DependentUpon>FormPrinterSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormTempMonitor.resx">
+      <DependentUpon>FormTempMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\GlobalSettings.resx">
+      <DependentUpon>GlobalSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\JobStatus.resx">
+      <DependentUpon>JobStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PrinterInfo.resx">
+      <DependentUpon>PrinterInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PrintPanel.resx">
+      <DependentUpon>PrintPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Skeinforge.resx">
+      <DependentUpon>Skeinforge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\STLComposer.resx">
+      <DependentUpon>STLComposer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SwitchButton.resx">
+      <DependentUpon>SwitchButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ThreeDControl.resx">
+      <DependentUpon>ThreeDControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ThreeDSettings.resx">
+      <DependentUpon>ThreeDSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RepetierHost_TemporaryKey.pfx" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="GraphLib\SelectCurvesForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphLib\SelectCurvesForm.designer.cs">
+      <DependentUpon>SelectCurvesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphLib\Utils.cs" />
+    <Compile Include="view\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EEPROMRepetier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EEPROMRepetier.Designer.cs">
+      <DependentUpon>EEPROMRepetier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormPrinterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormPrinterSettings.Designer.cs">
+      <DependentUpon>FormPrinterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormTempMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormTempMonitor.Designer.cs">
+      <DependentUpon>FormTempMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\GlobalSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\GlobalSettings.Designer.cs">
+      <DependentUpon>GlobalSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\JobStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\JobStatus.Designer.cs">
+      <DependentUpon>JobStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\LogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\LogView.Designer.cs">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PrinterInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PrinterInfo.Designer.cs">
+      <DependentUpon>PrinterInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\PrintPanel.Designer.cs">
+      <DependentUpon>PrintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Skeinforge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Skeinforge.Designer.cs">
+      <DependentUpon>Skeinforge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\STLComposer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\STLComposer.Designer.cs">
+      <DependentUpon>STLComposer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SwitchButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\SwitchButton.Designer.cs">
+      <DependentUpon>SwitchButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ThreeDControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\ThreeDControl.Designer.cs">
+      <DependentUpon>ThreeDControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ThreeDSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ThreeDSettings.Designer.cs">
+      <DependentUpon>ThreeDSettings.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\switch_on.bmp" />
+    <Content Include="images\switch_off.bmp" />
+    <Content Include="repetier-logo32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
