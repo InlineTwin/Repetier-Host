@@ -310,7 +310,9 @@ namespace RepetierHost
                 jobPreview.models.AddLast(jobVisual);
                 //jobPreview.SetObjectSelected(false);
             }
-            jobVisual.ParseText(textGCode.Text);
+            jobVisual.ParseText(textGCodePrepend.Text, true);
+            jobVisual.ParseText(textGCode.Text, false);
+            jobVisual.ParseText(textGCodeAppend.Text, false);
             jobPreview.UpdateChanges();
         }
         public void Update3D()

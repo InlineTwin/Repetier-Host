@@ -55,6 +55,7 @@
             this.toolConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolAction = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolProgress = new System.Windows.Forms.ToolStripProgressBar();
+            this.fpsLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolLoadGCode = new System.Windows.Forms.ToolStripButton();
             this.toolRunJob = new System.Windows.Forms.ToolStripButton();
@@ -64,9 +65,12 @@
             this.splitVert = new System.Windows.Forms.SplitContainer();
             this.splitContainerPrinterGraphic = new System.Windows.Forms.SplitContainer();
             this.tabGCode = new System.Windows.Forms.TabPage();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolGCodeCol = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolGCodeRow = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripJob = new System.Windows.Forms.ToolStrip();
+            this.toolStripSaveGCode = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSavePrepend = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSaveAppend = new System.Windows.Forms.ToolStripButton();
+            this.toolStripJobPreview = new System.Windows.Forms.ToolStripButton();
+            this.splitJob = new System.Windows.Forms.SplitContainer();
             this.tabGCodes = new System.Windows.Forms.TabControl();
             this.tabPageGCode = new System.Windows.Forms.TabPage();
             this.textGCode = new System.Windows.Forms.TextBox();
@@ -74,18 +78,14 @@
             this.textGCodePrepend = new System.Windows.Forms.TextBox();
             this.tabPageGCodeAppend = new System.Windows.Forms.TabPage();
             this.textGCodeAppend = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolGCodeCol = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolGCodeRow = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabModel = new System.Windows.Forms.TabPage();
+            this.stlComposer1 = new RepetierHost.view.STLComposer();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.openGCode = new System.Windows.Forms.OpenFileDialog();
-            this.splitJob = new System.Windows.Forms.SplitContainer();
-            this.toolStripJob = new System.Windows.Forms.ToolStrip();
-            this.toolStripSavePrepend = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSaveAppend = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSaveGCode = new System.Windows.Forms.ToolStripButton();
-            this.toolStripJobPreview = new System.Windows.Forms.ToolStripButton();
             this.saveJobDialog = new System.Windows.Forms.SaveFileDialog();
-            this.fpsLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.stlComposer1 = new RepetierHost.view.STLComposer();
             this.menu.SuspendLayout();
             this.status.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -95,15 +95,15 @@
             this.splitVert.SuspendLayout();
             this.splitContainerPrinterGraphic.SuspendLayout();
             this.tabGCode.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.toolStripJob.SuspendLayout();
+            this.splitJob.Panel1.SuspendLayout();
+            this.splitJob.SuspendLayout();
             this.tabGCodes.SuspendLayout();
             this.tabPageGCode.SuspendLayout();
             this.tabPagePrepend.SuspendLayout();
             this.tabPageGCodeAppend.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.tabModel.SuspendLayout();
-            this.splitJob.Panel1.SuspendLayout();
-            this.splitJob.SuspendLayout();
-            this.toolStripJob.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -309,6 +309,13 @@
             this.toolProgress.Name = "toolProgress";
             this.toolProgress.Size = new System.Drawing.Size(200, 16);
             // 
+            // fpsLabel
+            // 
+            this.fpsLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fpsLabel.Name = "fpsLabel";
+            this.fpsLabel.Size = new System.Drawing.Size(34, 17);
+            this.fpsLabel.Text = "- FPS";
+            // 
             // toolStrip
             // 
             this.toolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -416,28 +423,76 @@
             this.tabGCode.Text = "Job";
             this.tabGCode.UseVisualStyleBackColor = true;
             // 
-            // statusStrip1
+            // toolStripJob
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolGCodeCol,
-            this.toolGCodeRow});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 391);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(928, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.toolStripJob.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSaveGCode,
+            this.toolStripSavePrepend,
+            this.toolStripSaveAppend,
+            this.toolStripJobPreview});
+            this.toolStripJob.Location = new System.Drawing.Point(3, 3);
+            this.toolStripJob.Name = "toolStripJob";
+            this.toolStripJob.Size = new System.Drawing.Size(928, 25);
+            this.toolStripJob.TabIndex = 4;
+            this.toolStripJob.Text = "toolStripJob";
             // 
-            // toolGCodeCol
+            // toolStripSaveGCode
             // 
-            this.toolGCodeCol.Name = "toolGCodeCol";
-            this.toolGCodeCol.Size = new System.Drawing.Size(34, 17);
-            this.toolGCodeCol.Text = "Col 0";
+            this.toolStripSaveGCode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSaveGCode.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveGCode.Image")));
+            this.toolStripSaveGCode.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSaveGCode.Name = "toolStripSaveGCode";
+            this.toolStripSaveGCode.Size = new System.Drawing.Size(79, 22);
+            this.toolStripSaveGCode.Text = "Save G-Code";
+            this.toolStripSaveGCode.Click += new System.EventHandler(this.toolStripSaveGCode_Click);
             // 
-            // toolGCodeRow
+            // toolStripSavePrepend
             // 
-            this.toolGCodeRow.Name = "toolGCodeRow";
-            this.toolGCodeRow.Size = new System.Drawing.Size(39, 17);
-            this.toolGCodeRow.Text = "Row 1";
+            this.toolStripSavePrepend.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSavePrepend.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSavePrepend.Image")));
+            this.toolStripSavePrepend.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSavePrepend.Name = "toolStripSavePrepend";
+            this.toolStripSavePrepend.Size = new System.Drawing.Size(82, 22);
+            this.toolStripSavePrepend.Text = "Save prepend";
+            this.toolStripSavePrepend.Click += new System.EventHandler(this.toolStripSavePrepend_Click);
+            // 
+            // toolStripSaveAppend
+            // 
+            this.toolStripSaveAppend.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSaveAppend.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveAppend.Image")));
+            this.toolStripSaveAppend.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSaveAppend.Name = "toolStripSaveAppend";
+            this.toolStripSaveAppend.Size = new System.Drawing.Size(78, 22);
+            this.toolStripSaveAppend.Text = "Save append";
+            this.toolStripSaveAppend.Click += new System.EventHandler(this.toolStripSaveAppend_Click);
+            // 
+            // toolStripJobPreview
+            // 
+            this.toolStripJobPreview.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripJobPreview.Image = ((System.Drawing.Image)(resources.GetObject("toolStripJobPreview.Image")));
+            this.toolStripJobPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripJobPreview.Name = "toolStripJobPreview";
+            this.toolStripJobPreview.Size = new System.Drawing.Size(86, 22);
+            this.toolStripJobPreview.Text = "Visual preview";
+            this.toolStripJobPreview.Click += new System.EventHandler(this.toolStripJobPreview_Click);
+            // 
+            // splitJob
+            // 
+            this.splitJob.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitJob.BackColor = System.Drawing.Color.Transparent;
+            this.splitJob.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitJob.Location = new System.Drawing.Point(3, 31);
+            this.splitJob.Name = "splitJob";
+            // 
+            // splitJob.Panel1
+            // 
+            this.splitJob.Panel1.Controls.Add(this.tabGCodes);
+            this.splitJob.Panel2Collapsed = true;
+            this.splitJob.Size = new System.Drawing.Size(928, 357);
+            this.splitJob.SplitterDistance = 542;
+            this.splitJob.TabIndex = 3;
             // 
             // tabGCodes
             // 
@@ -528,6 +583,29 @@
             this.textGCodeAppend.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textGCode_Key);
             this.textGCodeAppend.Enter += new System.EventHandler(this.textGCode_Enter);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolGCodeCol,
+            this.toolGCodeRow});
+            this.statusStrip1.Location = new System.Drawing.Point(3, 391);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(928, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolGCodeCol
+            // 
+            this.toolGCodeCol.Name = "toolGCodeCol";
+            this.toolGCodeCol.Size = new System.Drawing.Size(34, 17);
+            this.toolGCodeCol.Text = "Col 0";
+            // 
+            // toolGCodeRow
+            // 
+            this.toolGCodeRow.Name = "toolGCodeRow";
+            this.toolGCodeRow.Size = new System.Drawing.Size(39, 17);
+            this.toolGCodeRow.Text = "Row 1";
+            // 
             // tabModel
             // 
             this.tabModel.Controls.Add(this.stlComposer1);
@@ -537,6 +615,14 @@
             this.tabModel.TabIndex = 2;
             this.tabModel.Text = "Model";
             this.tabModel.UseVisualStyleBackColor = true;
+            // 
+            // stlComposer1
+            // 
+            this.stlComposer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stlComposer1.Location = new System.Drawing.Point(0, 0);
+            this.stlComposer1.Name = "stlComposer1";
+            this.stlComposer1.Size = new System.Drawing.Size(934, 416);
+            this.stlComposer1.TabIndex = 0;
             // 
             // imageList
             // 
@@ -552,97 +638,11 @@
             this.openGCode.Filter = "GCode/STL-Files|*.gcode;*.stl|All files|*.*";
             this.openGCode.Title = "Import GCode";
             // 
-            // splitJob
-            // 
-            this.splitJob.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitJob.BackColor = System.Drawing.Color.Transparent;
-            this.splitJob.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitJob.Location = new System.Drawing.Point(3, 31);
-            this.splitJob.Name = "splitJob";
-            // 
-            // splitJob.Panel1
-            // 
-            this.splitJob.Panel1.Controls.Add(this.tabGCodes);
-            this.splitJob.Panel2Collapsed = true;
-            this.splitJob.Size = new System.Drawing.Size(928, 357);
-            this.splitJob.SplitterDistance = 542;
-            this.splitJob.TabIndex = 3;
-            // 
-            // toolStripJob
-            // 
-            this.toolStripJob.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSaveGCode,
-            this.toolStripSavePrepend,
-            this.toolStripSaveAppend,
-            this.toolStripJobPreview});
-            this.toolStripJob.Location = new System.Drawing.Point(3, 3);
-            this.toolStripJob.Name = "toolStripJob";
-            this.toolStripJob.Size = new System.Drawing.Size(928, 25);
-            this.toolStripJob.TabIndex = 4;
-            this.toolStripJob.Text = "toolStripJob";
-            // 
-            // toolStripSavePrepend
-            // 
-            this.toolStripSavePrepend.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSavePrepend.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSavePrepend.Image")));
-            this.toolStripSavePrepend.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSavePrepend.Name = "toolStripSavePrepend";
-            this.toolStripSavePrepend.Size = new System.Drawing.Size(82, 22);
-            this.toolStripSavePrepend.Text = "Save prepend";
-            this.toolStripSavePrepend.Click += new System.EventHandler(this.toolStripSavePrepend_Click);
-            // 
-            // toolStripSaveAppend
-            // 
-            this.toolStripSaveAppend.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSaveAppend.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveAppend.Image")));
-            this.toolStripSaveAppend.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSaveAppend.Name = "toolStripSaveAppend";
-            this.toolStripSaveAppend.Size = new System.Drawing.Size(78, 22);
-            this.toolStripSaveAppend.Text = "Save append";
-            this.toolStripSaveAppend.Click += new System.EventHandler(this.toolStripSaveAppend_Click);
-            // 
-            // toolStripSaveGCode
-            // 
-            this.toolStripSaveGCode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripSaveGCode.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveGCode.Image")));
-            this.toolStripSaveGCode.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSaveGCode.Name = "toolStripSaveGCode";
-            this.toolStripSaveGCode.Size = new System.Drawing.Size(79, 22);
-            this.toolStripSaveGCode.Text = "Save G-Code";
-            this.toolStripSaveGCode.Click += new System.EventHandler(this.toolStripSaveGCode_Click);
-            // 
-            // toolStripJobPreview
-            // 
-            this.toolStripJobPreview.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripJobPreview.Image = ((System.Drawing.Image)(resources.GetObject("toolStripJobPreview.Image")));
-            this.toolStripJobPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripJobPreview.Name = "toolStripJobPreview";
-            this.toolStripJobPreview.Size = new System.Drawing.Size(86, 22);
-            this.toolStripJobPreview.Text = "Visual preview";
-            this.toolStripJobPreview.Click += new System.EventHandler(this.toolStripJobPreview_Click);
-            // 
             // saveJobDialog
             // 
             this.saveJobDialog.DefaultExt = "gcode";
             this.saveJobDialog.Filter = "GCode|*.gcode|All files|*.*";
             this.saveJobDialog.Title = "Save G-Code";
-            // 
-            // fpsLabel
-            // 
-            this.fpsLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fpsLabel.Name = "fpsLabel";
-            this.fpsLabel.Size = new System.Drawing.Size(34, 17);
-            this.fpsLabel.Text = "- FPS";
-            // 
-            // stlComposer1
-            // 
-            this.stlComposer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stlComposer1.Location = new System.Drawing.Point(0, 0);
-            this.stlComposer1.Name = "stlComposer1";
-            this.stlComposer1.Size = new System.Drawing.Size(934, 416);
-            this.stlComposer1.TabIndex = 0;
             // 
             // Main
             // 
@@ -656,7 +656,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.Name = "Main";
-            this.Text = "Repetier-Host V0.2";
+            this.Text = "Repetier-Host V0.20a";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
@@ -671,8 +671,10 @@
             this.splitContainerPrinterGraphic.ResumeLayout(false);
             this.tabGCode.ResumeLayout(false);
             this.tabGCode.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.toolStripJob.ResumeLayout(false);
+            this.toolStripJob.PerformLayout();
+            this.splitJob.Panel1.ResumeLayout(false);
+            this.splitJob.ResumeLayout(false);
             this.tabGCodes.ResumeLayout(false);
             this.tabPageGCode.ResumeLayout(false);
             this.tabPageGCode.PerformLayout();
@@ -680,11 +682,9 @@
             this.tabPagePrepend.PerformLayout();
             this.tabPageGCodeAppend.ResumeLayout(false);
             this.tabPageGCodeAppend.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.tabModel.ResumeLayout(false);
-            this.splitJob.Panel1.ResumeLayout(false);
-            this.splitJob.ResumeLayout(false);
-            this.toolStripJob.ResumeLayout(false);
-            this.toolStripJob.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

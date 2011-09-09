@@ -174,7 +174,7 @@ namespace RepetierHost.model
         public float lastFilHeight = 999;
         public float lastFilWidth = 999;
         public float laste = -999;
-        float lastx = 0, lasty = 0, lastz = 0;
+        float lastx = 1e20f, lasty = 0, lastz = 0;
         bool changed = false;
         public GCodeVisual()
         {
@@ -211,7 +211,7 @@ namespace RepetierHost.model
         void OnPosChange(GCode act,float x, float y, float z)
         {
             bool isLastPos = Math.Abs(x-lastx)+Math.Abs(y-lasty)+Math.Abs(z-lastz)<0.00001;
-            if (!act.hasG || act.G > 1) return;
+            if (!act.hasG || (act.G > 1 && act.G!=28)) return;
             if (segments.Count == 0 || laste >= ana.e) // start new segment
             {
                 if (!isLastPos) // no move, no action
@@ -239,10 +239,11 @@ namespace RepetierHost.model
             lastz = z;
             laste = ana.emax;
         }
-        public void ParseText(string text)
+        public void ParseText(string text,bool clear)
         {
             GCode gc = new GCode();
-            Clear();
+            if(clear)
+                Clear();
             foreach(string s in text.Split('\n'))  {
                 gc.Parse(s);
                 AddGCode(gc);
