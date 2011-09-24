@@ -1,5 +1,9 @@
+Version 0.22 24.9.2011
+  Added test case generator.
+  Improved configuration handling.
+
 Version 0.20a 9.9.2011
-  Improved G-Code preview
+  Improved G-Code preview.
 
 Version 0.20 7.9.2011
   First public version.

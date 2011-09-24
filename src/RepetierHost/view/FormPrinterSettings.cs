@@ -29,10 +29,13 @@ using System.Globalization;
 
 namespace RepetierHost.view
 {
+    public delegate void PrinterChanged(RegistryKey printerKey);
     public partial class FormPrinterSettings : Form
     {
+        public event PrinterChanged eventPrinterChanged;
         public RegistryKey repetierKey;
         public RegistryKey printerKey;
+        public RegistryKey currentPrinterKey;
         public PrinterConnection con;
         public float PrintAreaWidth;
         public float PrintAreaDepth;
@@ -62,6 +65,7 @@ namespace RepetierHost.view
         {
             if (printername.Length == 0) return;
             RegistryKey p = printerKey.CreateSubKey(printername);
+            currentPrinterKey = p;
             p.SetValue("port", comboPort.Text);
             p.SetValue("baud", comboBaud.Text);
             p.SetValue("stopbits", comboStopbits.SelectedIndex);
@@ -90,8 +94,10 @@ namespace RepetierHost.view
         public void load(string printername)
         {
             if (printername.Length == 0) return;
+            comboPrinter.Text = printername;
             RegistryKey p = printerKey.CreateSubKey(printername);
-            comboPort.Text = (string)p.GetValue("port",comboPort.Text);
+            currentPrinterKey = p;
+            comboPort.Text = (string)p.GetValue("port", comboPort.Text);
             comboBaud.Text = (string)p.GetValue("baud",comboBaud.Text);
             comboStopbits.SelectedIndex = (int)p.GetValue("stopbits",comboStopbits.SelectedIndex);
             comboParity.SelectedIndex = (int)p.GetValue("parity",comboParity.SelectedIndex);
@@ -116,6 +122,7 @@ namespace RepetierHost.view
             textDumpAreaFront.Text = (string)p.GetValue("dumpAreaFront", textDumpAreaFront.Text);
             textDumpAreaWidth.Text = (string)p.GetValue("dumpAreaWidth", textDumpAreaWidth.Text);
             textDumpAreaDepth.Text = (string)p.GetValue("dumpAreaDepth", textDumpAreaDepth.Text);
+
         }
         public void UpdateDimensions()
         {
@@ -159,6 +166,8 @@ namespace RepetierHost.view
             con.afterJobDisableExtruder = checkDisableExtruderAfterJob.Checked;
             con.afterJobDisablePrintbed = checkDisbaleHeatedBedAfterJob.Checked;
             int.TryParse(textReceiveCacheSize.Text, out con.receiveCacheSize);
+            if (eventPrinterChanged != null)
+                eventPrinterChanged(currentPrinterKey);
         }
         public void conToForm()
         {

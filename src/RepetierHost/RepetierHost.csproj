@@ -84,6 +84,7 @@
     <Compile Include="model\EEPROMParameter.cs" />
     <Compile Include="model\GCode.cs" />
     <Compile Include="model\GCodeAnalyzer.cs" />
+    <Compile Include="model\GCodeGenerator.cs" />
     <Compile Include="model\GCodeVisual.cs" />
     <Compile Include="model\LogLine.cs" />
     <Compile Include="model\PrinterConnection.cs" />
@@ -171,11 +172,17 @@
     <EmbeddedResource Include="view\Skeinforge.resx">
       <DependentUpon>Skeinforge.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\SlicingParameter.resx">
+      <DependentUpon>SlicingParameter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\STLComposer.resx">
       <DependentUpon>STLComposer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\SwitchButton.resx">
       <DependentUpon>SwitchButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TestGenerator.resx">
+      <DependentUpon>TestGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ThreeDControl.resx">
       <DependentUpon>ThreeDControl.cs</DependentUpon>
@@ -265,6 +272,12 @@
     <Compile Include="view\Skeinforge.Designer.cs">
       <DependentUpon>Skeinforge.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\SlicingParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SlicingParameter.Designer.cs">
+      <DependentUpon>SlicingParameter.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\STLComposer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,6 +289,12 @@
     </Compile>
     <Compile Include="view\SwitchButton.Designer.cs">
       <DependentUpon>SwitchButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TestGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TestGenerator.Designer.cs">
+      <DependentUpon>TestGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="view\ThreeDControl.cs">
       <SubType>UserControl</SubType>

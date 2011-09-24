@@ -185,7 +185,8 @@ namespace RepetierHost.view
             {
                 sb.AppendLine(it.Text);
             }
-            Clipboard.SetText(sb.ToString());
+            if(sb.Length>0)
+                Clipboard.SetText(sb.ToString());
         }
 
         private void LogView_Load(object sender, EventArgs e)

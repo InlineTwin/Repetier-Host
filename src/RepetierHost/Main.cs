@@ -45,10 +45,12 @@ namespace RepetierHost
         public ThreeDControl printPreview = null;
         public GCodeVisual jobVisual = new GCodeVisual();
         public GCodeVisual printVisual = null;
+        public static GCodeGenerator generator = null;
         public Main()
         {
             repetierKey = Registry.CurrentUser.CreateSubKey("Software\\Repetier");
             main = this;
+            generator = new GCodeGenerator();
             globalSettings = new GlobalSettings();
             conn = new PrinterConnection();
             printerSettings = new FormPrinterSettings();
@@ -64,8 +66,8 @@ namespace RepetierHost
             logView.Dock = DockStyle.Fill;
             splitVert.Panel2.Controls.Add(logView);
             skeinforge = new Skeinforge();
-            textGCodePrepend.Text = (string)repetierKey.GetValue("gcodePrepend", "");
-            textGCodeAppend.Text = (string)repetierKey.GetValue("gcodeAppend", "");
+            PrinterChanged(printerSettings.currentPrinterKey);
+            printerSettings.eventPrinterChanged += PrinterChanged;
             // GCode print preview
             printPreview = new ThreeDControl();
             printPreview.Dock = DockStyle.Fill;
@@ -76,7 +78,11 @@ namespace RepetierHost
             printPreview.models.AddLast(printVisual);
 
         }
-
+        public void PrinterChanged(RegistryKey pkey)
+        {
+            textGCodePrepend.Text = (string)pkey.GetValue("gcodePrepend", textGCodePrepend.Text);
+            textGCodeAppend.Text = (string)pkey.GetValue("gcodeAppend", textGCodeAppend.Text);
+        }
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -125,6 +131,19 @@ namespace RepetierHost
                 tabGCodes.SelectedTab = tabPageGCode;
             }
             catch(Exception e)
+            {
+                MessageBox.Show(e.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void LoadGCodeText(string text)
+        {
+            try
+            {
+                textGCode.Text = text;
+                tab.SelectTab(tabGCode);
+                tabGCodes.SelectedTab = tabPageGCode;
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -290,12 +309,12 @@ namespace RepetierHost
 
         private void toolStripSavePrepend_Click(object sender, EventArgs e)
         {
-            repetierKey.SetValue("gcodePrepend", textGCodePrepend.Text);
+            printerSettings.currentPrinterKey.SetValue("gcodePrepend", textGCodePrepend.Text);
         }
 
         private void toolStripSaveAppend_Click(object sender, EventArgs e)
         {
-            repetierKey.SetValue("gcodeAppend", textGCodeAppend.Text);
+            printerSettings.currentPrinterKey.SetValue("gcodeAppend", textGCodeAppend.Text);
         }
         private void toolStripJobPreview_Click(object sender, EventArgs e)
         {
@@ -331,6 +350,16 @@ namespace RepetierHost
                     stlComposer1.Update3D();
                     break;
             }
+        }
+
+        private void testCaseGeneratorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TestGenerator.Execute();
+        }
+
+        private void internalSlicingParameterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SlicingParameter.Execute();
         }
     }
 }

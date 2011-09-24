@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageConnection = new System.Windows.Forms.TabPage();
+            this.checkPingPong = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textReceiveCacheSize = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -69,43 +70,42 @@
             this.textZFeedrate = new System.Windows.Forms.TextBox();
             this.textTravelFeedrate = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabPageShape = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.checkHasDumpArea = new System.Windows.Forms.CheckBox();
+            this.textPrintAreaHeight = new System.Windows.Forms.TextBox();
+            this.textDumpAreaDepth = new System.Windows.Forms.TextBox();
+            this.textDumpAreaWidth = new System.Windows.Forms.TextBox();
+            this.textDumpAreaFront = new System.Windows.Forms.TextBox();
+            this.textDumpAreaLeft = new System.Windows.Forms.TextBox();
+            this.textPrintAreaDepth = new System.Windows.Forms.TextBox();
+            this.textPrintAreaWidth = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonApply = new System.Windows.Forms.Button();
             this.buttonAbort = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tabPageShape = new System.Windows.Forms.TabPage();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textPrintAreaWidth = new System.Windows.Forms.TextBox();
-            this.textPrintAreaDepth = new System.Windows.Forms.TextBox();
-            this.textDumpAreaLeft = new System.Windows.Forms.TextBox();
-            this.textPrintAreaHeight = new System.Windows.Forms.TextBox();
-            this.checkHasDumpArea = new System.Windows.Forms.CheckBox();
-            this.textDumpAreaFront = new System.Windows.Forms.TextBox();
-            this.textDumpAreaWidth = new System.Windows.Forms.TextBox();
-            this.textDumpAreaDepth = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.checkPingPong = new System.Windows.Forms.CheckBox();
             this.panelPrinterSelect.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageConnection.SuspendLayout();
             this.tabPagePrinter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackTempPeriod)).BeginInit();
+            this.tabPageShape.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.tabPageShape.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPrinterSelect
@@ -172,6 +172,16 @@
             this.tabPageConnection.TabIndex = 0;
             this.tabPageConnection.Text = "Connection";
             this.tabPageConnection.UseVisualStyleBackColor = true;
+            // 
+            // checkPingPong
+            // 
+            this.checkPingPong.AutoSize = true;
+            this.checkPingPong.Location = new System.Drawing.Point(15, 177);
+            this.checkPingPong.Name = "checkPingPong";
+            this.checkPingPong.Size = new System.Drawing.Size(264, 17);
+            this.checkPingPong.TabIndex = 14;
+            this.checkPingPong.Text = "Use Ping-Pong communication (send only after ok)";
+            this.checkPingPong.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -292,6 +302,7 @@
             "76800",
             "115200",
             "128000",
+            "250000",
             "256000"});
             this.comboBaud.Location = new System.Drawing.Point(129, 34);
             this.comboBaud.Name = "comboBaud";
@@ -538,6 +549,239 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Travel feed rate:";
             // 
+            // tabPageShape
+            // 
+            this.tabPageShape.Controls.Add(this.label31);
+            this.tabPageShape.Controls.Add(this.label30);
+            this.tabPageShape.Controls.Add(this.label29);
+            this.tabPageShape.Controls.Add(this.label28);
+            this.tabPageShape.Controls.Add(this.label27);
+            this.tabPageShape.Controls.Add(this.label26);
+            this.tabPageShape.Controls.Add(this.label25);
+            this.tabPageShape.Controls.Add(this.label24);
+            this.tabPageShape.Controls.Add(this.label23);
+            this.tabPageShape.Controls.Add(this.label22);
+            this.tabPageShape.Controls.Add(this.label21);
+            this.tabPageShape.Controls.Add(this.checkHasDumpArea);
+            this.tabPageShape.Controls.Add(this.textPrintAreaHeight);
+            this.tabPageShape.Controls.Add(this.textDumpAreaDepth);
+            this.tabPageShape.Controls.Add(this.textDumpAreaWidth);
+            this.tabPageShape.Controls.Add(this.textDumpAreaFront);
+            this.tabPageShape.Controls.Add(this.textDumpAreaLeft);
+            this.tabPageShape.Controls.Add(this.textPrintAreaDepth);
+            this.tabPageShape.Controls.Add(this.textPrintAreaWidth);
+            this.tabPageShape.Controls.Add(this.label20);
+            this.tabPageShape.Controls.Add(this.label19);
+            this.tabPageShape.Controls.Add(this.label18);
+            this.tabPageShape.Location = new System.Drawing.Point(4, 22);
+            this.tabPageShape.Name = "tabPageShape";
+            this.tabPageShape.Size = new System.Drawing.Size(450, 396);
+            this.tabPageShape.TabIndex = 2;
+            this.tabPageShape.Text = "Printer shape";
+            this.tabPageShape.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(240, 198);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(23, 13);
+            this.label31.TabIndex = 6;
+            this.label31.Text = "mm";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(240, 172);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(23, 13);
+            this.label30.TabIndex = 6;
+            this.label30.Text = "mm";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(240, 146);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(23, 13);
+            this.label29.TabIndex = 6;
+            this.label29.Text = "mm";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(240, 120);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(23, 13);
+            this.label28.TabIndex = 6;
+            this.label28.Text = "mm";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(240, 67);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(23, 13);
+            this.label27.TabIndex = 6;
+            this.label27.Text = "mm";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(240, 41);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(23, 13);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "mm";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(240, 15);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(23, 13);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "mm";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(8, 198);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(92, 13);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Dump area depth:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 172);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(90, 13);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "Dump area width:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 146);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(86, 13);
+            this.label22.TabIndex = 5;
+            this.label22.Text = "Dump area front:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(8, 120);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(79, 13);
+            this.label21.TabIndex = 5;
+            this.label21.Text = "Dump area left:";
+            // 
+            // checkHasDumpArea
+            // 
+            this.checkHasDumpArea.AutoSize = true;
+            this.checkHasDumpArea.Checked = true;
+            this.checkHasDumpArea.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkHasDumpArea.Location = new System.Drawing.Point(11, 94);
+            this.checkHasDumpArea.Name = "checkHasDumpArea";
+            this.checkHasDumpArea.Size = new System.Drawing.Size(129, 17);
+            this.checkHasDumpArea.TabIndex = 3;
+            this.checkHasDumpArea.Text = "Printer has dump area";
+            this.checkHasDumpArea.UseVisualStyleBackColor = true;
+            // 
+            // textPrintAreaHeight
+            // 
+            this.textPrintAreaHeight.Location = new System.Drawing.Point(114, 64);
+            this.textPrintAreaHeight.Name = "textPrintAreaHeight";
+            this.textPrintAreaHeight.Size = new System.Drawing.Size(100, 20);
+            this.textPrintAreaHeight.TabIndex = 2;
+            this.textPrintAreaHeight.Text = "100";
+            this.textPrintAreaHeight.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // textDumpAreaDepth
+            // 
+            this.textDumpAreaDepth.Location = new System.Drawing.Point(114, 195);
+            this.textDumpAreaDepth.Name = "textDumpAreaDepth";
+            this.textDumpAreaDepth.Size = new System.Drawing.Size(100, 20);
+            this.textDumpAreaDepth.TabIndex = 7;
+            this.textDumpAreaDepth.Text = "40";
+            this.textDumpAreaDepth.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // textDumpAreaWidth
+            // 
+            this.textDumpAreaWidth.Location = new System.Drawing.Point(114, 169);
+            this.textDumpAreaWidth.Name = "textDumpAreaWidth";
+            this.textDumpAreaWidth.Size = new System.Drawing.Size(100, 20);
+            this.textDumpAreaWidth.TabIndex = 6;
+            this.textDumpAreaWidth.Text = "22";
+            this.textDumpAreaWidth.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // textDumpAreaFront
+            // 
+            this.textDumpAreaFront.Location = new System.Drawing.Point(114, 143);
+            this.textDumpAreaFront.Name = "textDumpAreaFront";
+            this.textDumpAreaFront.Size = new System.Drawing.Size(100, 20);
+            this.textDumpAreaFront.TabIndex = 5;
+            this.textDumpAreaFront.Text = "0";
+            this.textDumpAreaFront.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // textDumpAreaLeft
+            // 
+            this.textDumpAreaLeft.Location = new System.Drawing.Point(114, 117);
+            this.textDumpAreaLeft.Name = "textDumpAreaLeft";
+            this.textDumpAreaLeft.Size = new System.Drawing.Size(100, 20);
+            this.textDumpAreaLeft.TabIndex = 4;
+            this.textDumpAreaLeft.Text = "125";
+            this.textDumpAreaLeft.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // textPrintAreaDepth
+            // 
+            this.textPrintAreaDepth.Location = new System.Drawing.Point(114, 38);
+            this.textPrintAreaDepth.Name = "textPrintAreaDepth";
+            this.textPrintAreaDepth.Size = new System.Drawing.Size(100, 20);
+            this.textPrintAreaDepth.TabIndex = 1;
+            this.textPrintAreaDepth.Text = "200";
+            this.textPrintAreaDepth.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // textPrintAreaWidth
+            // 
+            this.textPrintAreaWidth.Location = new System.Drawing.Point(114, 12);
+            this.textPrintAreaWidth.Name = "textPrintAreaWidth";
+            this.textPrintAreaWidth.Size = new System.Drawing.Size(100, 20);
+            this.textPrintAreaWidth.TabIndex = 0;
+            this.textPrintAreaWidth.Text = "200";
+            this.textPrintAreaWidth.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(8, 67);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(87, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Print area height:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(8, 41);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(85, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Print area depth:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(8, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(83, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Print area width:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.buttonApply);
@@ -583,242 +827,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // tabPageShape
-            // 
-            this.tabPageShape.Controls.Add(this.label31);
-            this.tabPageShape.Controls.Add(this.label30);
-            this.tabPageShape.Controls.Add(this.label29);
-            this.tabPageShape.Controls.Add(this.label28);
-            this.tabPageShape.Controls.Add(this.label27);
-            this.tabPageShape.Controls.Add(this.label26);
-            this.tabPageShape.Controls.Add(this.label25);
-            this.tabPageShape.Controls.Add(this.label24);
-            this.tabPageShape.Controls.Add(this.label23);
-            this.tabPageShape.Controls.Add(this.label22);
-            this.tabPageShape.Controls.Add(this.label21);
-            this.tabPageShape.Controls.Add(this.checkHasDumpArea);
-            this.tabPageShape.Controls.Add(this.textPrintAreaHeight);
-            this.tabPageShape.Controls.Add(this.textDumpAreaDepth);
-            this.tabPageShape.Controls.Add(this.textDumpAreaWidth);
-            this.tabPageShape.Controls.Add(this.textDumpAreaFront);
-            this.tabPageShape.Controls.Add(this.textDumpAreaLeft);
-            this.tabPageShape.Controls.Add(this.textPrintAreaDepth);
-            this.tabPageShape.Controls.Add(this.textPrintAreaWidth);
-            this.tabPageShape.Controls.Add(this.label20);
-            this.tabPageShape.Controls.Add(this.label19);
-            this.tabPageShape.Controls.Add(this.label18);
-            this.tabPageShape.Location = new System.Drawing.Point(4, 22);
-            this.tabPageShape.Name = "tabPageShape";
-            this.tabPageShape.Size = new System.Drawing.Size(450, 396);
-            this.tabPageShape.TabIndex = 2;
-            this.tabPageShape.Text = "Printer shape";
-            this.tabPageShape.UseVisualStyleBackColor = true;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(8, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(83, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Print area width:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(8, 41);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(85, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Print area depth:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 67);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(87, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Print area height:";
-            // 
-            // textPrintAreaWidth
-            // 
-            this.textPrintAreaWidth.Location = new System.Drawing.Point(114, 12);
-            this.textPrintAreaWidth.Name = "textPrintAreaWidth";
-            this.textPrintAreaWidth.Size = new System.Drawing.Size(100, 20);
-            this.textPrintAreaWidth.TabIndex = 0;
-            this.textPrintAreaWidth.Text = "200";
-            // 
-            // textPrintAreaDepth
-            // 
-            this.textPrintAreaDepth.Location = new System.Drawing.Point(114, 38);
-            this.textPrintAreaDepth.Name = "textPrintAreaDepth";
-            this.textPrintAreaDepth.Size = new System.Drawing.Size(100, 20);
-            this.textPrintAreaDepth.TabIndex = 1;
-            this.textPrintAreaDepth.Text = "200";
-            // 
-            // textDumpAreaLeft
-            // 
-            this.textDumpAreaLeft.Location = new System.Drawing.Point(114, 117);
-            this.textDumpAreaLeft.Name = "textDumpAreaLeft";
-            this.textDumpAreaLeft.Size = new System.Drawing.Size(100, 20);
-            this.textDumpAreaLeft.TabIndex = 4;
-            this.textDumpAreaLeft.Text = "125";
-            // 
-            // textPrintAreaHeight
-            // 
-            this.textPrintAreaHeight.Location = new System.Drawing.Point(114, 64);
-            this.textPrintAreaHeight.Name = "textPrintAreaHeight";
-            this.textPrintAreaHeight.Size = new System.Drawing.Size(100, 20);
-            this.textPrintAreaHeight.TabIndex = 2;
-            this.textPrintAreaHeight.Text = "100";
-            // 
-            // checkHasDumpArea
-            // 
-            this.checkHasDumpArea.AutoSize = true;
-            this.checkHasDumpArea.Checked = true;
-            this.checkHasDumpArea.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkHasDumpArea.Location = new System.Drawing.Point(11, 94);
-            this.checkHasDumpArea.Name = "checkHasDumpArea";
-            this.checkHasDumpArea.Size = new System.Drawing.Size(129, 17);
-            this.checkHasDumpArea.TabIndex = 3;
-            this.checkHasDumpArea.Text = "Printer has dump area";
-            this.checkHasDumpArea.UseVisualStyleBackColor = true;
-            // 
-            // textDumpAreaFront
-            // 
-            this.textDumpAreaFront.Location = new System.Drawing.Point(114, 143);
-            this.textDumpAreaFront.Name = "textDumpAreaFront";
-            this.textDumpAreaFront.Size = new System.Drawing.Size(100, 20);
-            this.textDumpAreaFront.TabIndex = 5;
-            this.textDumpAreaFront.Text = "0";
-            // 
-            // textDumpAreaWidth
-            // 
-            this.textDumpAreaWidth.Location = new System.Drawing.Point(114, 169);
-            this.textDumpAreaWidth.Name = "textDumpAreaWidth";
-            this.textDumpAreaWidth.Size = new System.Drawing.Size(100, 20);
-            this.textDumpAreaWidth.TabIndex = 6;
-            this.textDumpAreaWidth.Text = "22";
-            // 
-            // textDumpAreaDepth
-            // 
-            this.textDumpAreaDepth.Location = new System.Drawing.Point(114, 195);
-            this.textDumpAreaDepth.Name = "textDumpAreaDepth";
-            this.textDumpAreaDepth.Size = new System.Drawing.Size(100, 20);
-            this.textDumpAreaDepth.TabIndex = 7;
-            this.textDumpAreaDepth.Text = "40";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(8, 120);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 13);
-            this.label21.TabIndex = 5;
-            this.label21.Text = "Dump area left:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 146);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(86, 13);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Dump area front:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(8, 172);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(90, 13);
-            this.label23.TabIndex = 5;
-            this.label23.Text = "Dump area width:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(8, 198);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(92, 13);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Dump area depth:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(240, 15);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(23, 13);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "mm";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(240, 41);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(23, 13);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "mm";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(240, 67);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(23, 13);
-            this.label27.TabIndex = 6;
-            this.label27.Text = "mm";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(240, 120);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(23, 13);
-            this.label28.TabIndex = 6;
-            this.label28.Text = "mm";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(240, 146);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(23, 13);
-            this.label29.TabIndex = 6;
-            this.label29.Text = "mm";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(240, 172);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(23, 13);
-            this.label30.TabIndex = 6;
-            this.label30.Text = "mm";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(240, 198);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(23, 13);
-            this.label31.TabIndex = 6;
-            this.label31.Text = "mm";
-            // 
-            // checkPingPong
-            // 
-            this.checkPingPong.AutoSize = true;
-            this.checkPingPong.Location = new System.Drawing.Point(15, 177);
-            this.checkPingPong.Name = "checkPingPong";
-            this.checkPingPong.Size = new System.Drawing.Size(264, 17);
-            this.checkPingPong.TabIndex = 14;
-            this.checkPingPong.Text = "Use Ping-Pong communication (send only after ok)";
-            this.checkPingPong.UseVisualStyleBackColor = true;
-            // 
             // FormPrinterSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -843,10 +851,10 @@
             this.tabPagePrinter.ResumeLayout(false);
             this.tabPagePrinter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackTempPeriod)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.tabPageShape.ResumeLayout(false);
             this.tabPageShape.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -854,7 +862,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelPrinterSelect;
-        private System.Windows.Forms.ComboBox comboPrinter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageConnection;
@@ -921,5 +928,6 @@
         private System.Windows.Forms.TextBox textDumpAreaWidth;
         private System.Windows.Forms.TextBox textDumpAreaFront;
         private System.Windows.Forms.CheckBox checkPingPong;
+        public System.Windows.Forms.ComboBox comboPrinter;
     }
 }

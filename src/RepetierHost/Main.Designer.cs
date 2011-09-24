@@ -41,11 +41,13 @@
             this.skeinforgeSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.threeDSettingsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.repetierSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.internalSlicingParameterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temperatureMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printerInformationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jobStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skeinforgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testCaseGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.repetierHostHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,10 +84,10 @@
             this.toolGCodeCol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolGCodeRow = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabModel = new System.Windows.Forms.TabPage();
-            this.stlComposer1 = new RepetierHost.view.STLComposer();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.openGCode = new System.Windows.Forms.OpenFileDialog();
             this.saveJobDialog = new System.Windows.Forms.SaveFileDialog();
+            this.stlComposer1 = new RepetierHost.view.STLComposer();
             this.menu.SuspendLayout();
             this.status.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -156,7 +158,8 @@
             this.eeprom,
             this.skeinforgeSettingsToolStripMenuItem,
             this.threeDSettingsMenu,
-            this.repetierSettingsToolStripMenuItem});
+            this.repetierSettingsToolStripMenuItem,
+            this.internalSlicingParameterToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "&Settings";
@@ -199,13 +202,21 @@
             this.repetierSettingsToolStripMenuItem.Text = "Repetier settings";
             this.repetierSettingsToolStripMenuItem.Click += new System.EventHandler(this.repetierSettingsToolStripMenuItem_Click);
             // 
+            // internalSlicingParameterToolStripMenuItem
+            // 
+            this.internalSlicingParameterToolStripMenuItem.Name = "internalSlicingParameterToolStripMenuItem";
+            this.internalSlicingParameterToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.internalSlicingParameterToolStripMenuItem.Text = "Internal slicing parameter";
+            this.internalSlicingParameterToolStripMenuItem.Click += new System.EventHandler(this.internalSlicingParameterToolStripMenuItem_Click);
+            // 
             // windowsToolStripMenuItem
             // 
             this.windowsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.temperatureMonitorToolStripMenuItem,
             this.printerInformationsToolStripMenuItem,
             this.jobStatusToolStripMenuItem,
-            this.skeinforgeToolStripMenuItem});
+            this.skeinforgeToolStripMenuItem,
+            this.testCaseGeneratorToolStripMenuItem});
             this.windowsToolStripMenuItem.Name = "windowsToolStripMenuItem";
             this.windowsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.windowsToolStripMenuItem.Text = "&Windows";
@@ -241,6 +252,13 @@
             this.skeinforgeToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.skeinforgeToolStripMenuItem.Text = "Skeinforge";
             this.skeinforgeToolStripMenuItem.Click += new System.EventHandler(this.skeinforgeToolStripMenuItem_Click);
+            // 
+            // testCaseGeneratorToolStripMenuItem
+            // 
+            this.testCaseGeneratorToolStripMenuItem.Name = "testCaseGeneratorToolStripMenuItem";
+            this.testCaseGeneratorToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.testCaseGeneratorToolStripMenuItem.Text = "Test case generator";
+            this.testCaseGeneratorToolStripMenuItem.Click += new System.EventHandler(this.testCaseGeneratorToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -616,14 +634,6 @@
             this.tabModel.Text = "Model";
             this.tabModel.UseVisualStyleBackColor = true;
             // 
-            // stlComposer1
-            // 
-            this.stlComposer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stlComposer1.Location = new System.Drawing.Point(0, 0);
-            this.stlComposer1.Name = "stlComposer1";
-            this.stlComposer1.Size = new System.Drawing.Size(934, 416);
-            this.stlComposer1.TabIndex = 0;
-            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
@@ -644,6 +654,14 @@
             this.saveJobDialog.Filter = "GCode|*.gcode|All files|*.*";
             this.saveJobDialog.Title = "Save G-Code";
             // 
+            // stlComposer1
+            // 
+            this.stlComposer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stlComposer1.Location = new System.Drawing.Point(0, 0);
+            this.stlComposer1.Name = "stlComposer1";
+            this.stlComposer1.Size = new System.Drawing.Size(934, 416);
+            this.stlComposer1.TabIndex = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,7 +674,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.Name = "Main";
-            this.Text = "Repetier-Host V0.20a";
+            this.Text = "Repetier-Host V0.22";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
@@ -713,14 +731,12 @@
         private System.Windows.Forms.ToolStripMenuItem printerSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eeprom;
         private System.Windows.Forms.ImageList imageList;
-        private System.Windows.Forms.TabControl tabGCodes;
         private System.Windows.Forms.TabPage tabPageGCode;
         private System.Windows.Forms.TextBox textGCode;
         private System.Windows.Forms.TabPage tabPagePrepend;
         private System.Windows.Forms.TabPage tabPageGCodeAppend;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolGCodeCol;
-        private System.Windows.Forms.TextBox textGCodePrepend;
         private System.Windows.Forms.TextBox textGCodeAppend;
         private System.Windows.Forms.OpenFileDialog openGCode;
         private System.Windows.Forms.ToolStripStatusLabel toolGCodeRow;
@@ -748,6 +764,10 @@
         private System.Windows.Forms.ToolStripButton toolStripJobPreview;
         private System.Windows.Forms.SaveFileDialog saveJobDialog;
         public System.Windows.Forms.ToolStripStatusLabel fpsLabel;
+        private System.Windows.Forms.ToolStripMenuItem testCaseGeneratorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem internalSlicingParameterToolStripMenuItem;
+        public System.Windows.Forms.TabControl tabGCodes;
+        public System.Windows.Forms.TextBox textGCodePrepend;
     }
 }
 
