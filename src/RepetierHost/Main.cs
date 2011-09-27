@@ -66,7 +66,7 @@ namespace RepetierHost
             logView.Dock = DockStyle.Fill;
             splitVert.Panel2.Controls.Add(logView);
             skeinforge = new Skeinforge();
-            PrinterChanged(printerSettings.currentPrinterKey);
+            PrinterChanged(printerSettings.currentPrinterKey,true);
             printerSettings.eventPrinterChanged += PrinterChanged;
             // GCode print preview
             printPreview = new ThreeDControl();
@@ -78,10 +78,13 @@ namespace RepetierHost
             printPreview.models.AddLast(printVisual);
 
         }
-        public void PrinterChanged(RegistryKey pkey)
+        public void PrinterChanged(RegistryKey pkey,bool printerChanged)
         {
-            textGCodePrepend.Text = (string)pkey.GetValue("gcodePrepend", textGCodePrepend.Text);
-            textGCodeAppend.Text = (string)pkey.GetValue("gcodeAppend", textGCodeAppend.Text);
+            if (printerChanged)
+            {
+                textGCodePrepend.Text = (string)pkey.GetValue("gcodePrepend", textGCodePrepend.Text);
+                textGCodeAppend.Text = (string)pkey.GetValue("gcodeAppend", textGCodeAppend.Text);
+            }
         }
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -1,3 +1,6 @@
+Version 0.23 27.9.2011
+  Fixed bug with filament drawing in Skainforge relative mode
+
 Version 0.22 24.9.2011
   Added test case generator.
   Improved configuration handling.

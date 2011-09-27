@@ -37,6 +37,7 @@ namespace RepetierHost.model
         public float fanVoltage = 0;
         public bool powerOn = true;
         public bool relative = false;
+        public bool eRelative = false;
         public int debugLevel = 6;
         public int lastline = 0;
         public bool hasXHome = false, hasYHome = false, hasZHome = false;
@@ -60,6 +61,7 @@ namespace RepetierHost.model
         public void start()
         {
             relative = false;
+            eRelative = false;
             activeExtruder = 0;
             extruderTemp = 0;
             bedTemp = 0;
@@ -94,7 +96,13 @@ namespace RepetierHost.model
                             if (code.hasX) x = xOffset+code.X;
                             if (code.hasY) y = yOffset+code.Y;
                             if (code.hasZ) z = zOffset+code.Z;
-                            if (code.hasE) e = eOffset+code.E;
+                            if (code.hasE)
+                            {
+                                if (eRelative)
+                                    e += code.E;
+                                else
+                                    e = eOffset + code.E;
+                            }
                         }
                         if (x < 0) x = 0;
                         if (y < 0) y = 0;
@@ -138,6 +146,12 @@ namespace RepetierHost.model
                     case 81:
                         powerOn = false;
                         fireChanged();
+                        break;
+                    case 82:
+                        eRelative = false;
+                        break;
+                    case 83:
+                        eRelative = true;
                         break;
                     case 104:
                     case 109:

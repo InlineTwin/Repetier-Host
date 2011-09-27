@@ -29,7 +29,7 @@ using System.Globalization;
 
 namespace RepetierHost.view
 {
-    public delegate void PrinterChanged(RegistryKey printerKey);
+    public delegate void PrinterChanged(RegistryKey printerKey,bool printerChanged);
     public partial class FormPrinterSettings : Form
     {
         public event PrinterChanged eventPrinterChanged;
@@ -45,7 +45,6 @@ namespace RepetierHost.view
         public float DumpAreaFront;
         public float DumpAreaWidth;
         public float DumpAreaDepth;
-
         public FormPrinterSettings()
         {
             InitializeComponent();
@@ -137,6 +136,7 @@ namespace RepetierHost.view
         }
         public void formToCon()
         {
+            bool pnchanged = !con.printerName.Equals(comboPrinter.Text);
             con.printerName = comboPrinter.Text;
             con.port = comboPort.Text;
             con.baud = int.Parse(comboBaud.Text);
@@ -167,7 +167,7 @@ namespace RepetierHost.view
             con.afterJobDisablePrintbed = checkDisbaleHeatedBedAfterJob.Checked;
             int.TryParse(textReceiveCacheSize.Text, out con.receiveCacheSize);
             if (eventPrinterChanged != null)
-                eventPrinterChanged(currentPrinterKey);
+                eventPrinterChanged(currentPrinterKey,pnchanged);
         }
         public void conToForm()
         {
