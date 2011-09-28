@@ -208,6 +208,7 @@ namespace RepetierHost.view
             formToCon();
             UpdateDimensions();
             Hide();
+            Main.main.Update3D();
         }
 
         private void buttonAbort_Click(object sender, EventArgs e)
@@ -215,6 +216,7 @@ namespace RepetierHost.view
             load(con.printerName);
             UpdateDimensions();
             Hide();
+            Main.main.Update3D();
         }
 
         private void FormPrinterSettings_Shown(object sender, EventArgs e)
@@ -236,6 +238,7 @@ namespace RepetierHost.view
                 comboPrinter.Items.Add(name);
                 comboPrinter.SelectedIndex = comboPrinter.Items.IndexOf(name);
             }
+            Main.main.Update3D();
         }
 
         private void comboPrinter_SelectedIndexChanged(object sender, EventArgs e)

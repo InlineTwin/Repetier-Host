@@ -110,7 +110,7 @@ namespace RepetierHost.view
                 float dy = viewCenter.Y - userPosition.Y;
                 float dz = viewCenter.Z - userPosition.Z;
                 float dist = (float)Math.Sqrt(dx * dx + dy * dy + dz * dz);
-                Matrix4 persp = Matrix4.CreatePerspectiveFieldOfView((float)(zoom*30f * Math.PI / 180f), (float)w / (float)h, Math.Max(0,dist-2*ps.PrintAreaWidth),dist+ 2*ps.PrintAreaWidth);
+                Matrix4 persp = Matrix4.CreatePerspectiveFieldOfView((float)(zoom*30f * Math.PI / 180f), (float)w / (float)h, Math.Max(10,dist-2f*ps.PrintAreaDepth),dist+ 2*ps.PrintAreaDepth);
                 GL.LoadMatrix(ref persp);
                 // GL.Ortho(0, w, 0, h, -1, 1); // Bottom-left corner pixel has coordinate (0, 0)
 
