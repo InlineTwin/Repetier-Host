@@ -32,6 +32,7 @@ namespace RepetierHost.view
         GCodeAnalyzer ann;
         LinkedList<string> commands = new LinkedList<string>();
         int commandPos = 0;
+        bool createCommands = true;
         public PrintPanel()
         {
             InitializeComponent();
@@ -42,6 +43,8 @@ namespace RepetierHost.view
             ann.eventPosChanged += coordUpdate;
             ann.eventChange += analyzerChange;
             UpdateConStatus(false);
+            float volt = 100f * trackFanVoltage.Value / 255;
+            labelVoltage.Text = "Output " + volt.ToString("0.0") + "%";
         }
         public void ConnectionChanged(string msg) {
             UpdateConStatus(Main.conn.serial != null);
@@ -52,10 +55,17 @@ namespace RepetierHost.view
             labelPrintbedTemp.Text = printbed.ToString() + "°C";
         }
         private void analyzerChange() {
+            createCommands = false;
+            if (ann.extruderTemp > 0)
+                textExtruderSetTemp.Text = ann.extruderTemp.ToString();
+            if (ann.bedTemp > 0)
+                textPrintbedTemp.Text = ann.bedTemp.ToString();
             switchExtruderHeatOn.On = ann.extruderTemp > 0;
             switchFanOn.On = ann.fanOn;
+            trackFanVoltage.Value = ann.fanVoltage;
             switchBedHeat.On = ann.bedTemp > 0;
             switchPower.On = ann.powerOn;
+            createCommands = true;
         }
         private void coordUpdate(GCode code,float x,float y,float z) {
             labelX.Text = "X=" + x.ToString("0.00");
@@ -101,6 +111,7 @@ namespace RepetierHost.view
             buttonZP1.Enabled = c;
             buttonZP10.Enabled = c;
             buttonZP100.Enabled = c;
+            buttonStopMotor.Enabled = c;
             switchPower.Enabled = c;
             switchExtruderReverse.Enabled = c;
             switchEcho.Enabled = c;
@@ -305,10 +316,11 @@ namespace RepetierHost.view
         private void switchFanOn_Change(SwitchButton b)
         {
             if (Main.conn.connected == false) return;
+            if (!createCommands) return;
             con.GetInjectLock();
             if (switchFanOn.On)
             {
-                con.injectManualCommand("M106 S" + trackFanVoltage);
+                con.injectManualCommand("M106 S" + trackFanVoltage.Value);
             }
             else
             {
@@ -319,8 +331,10 @@ namespace RepetierHost.view
 
         private void trackFanVoltage_ValueChanged(object sender, EventArgs e)
         {
-            float volt = 12f / trackFanVoltage.Value;
-            labelVoltage.Text = "Voltage " + volt.ToString("0.0") + "V";
+            float volt = 100f*trackFanVoltage.Value/255;
+            labelVoltage.Text = "Output " + volt.ToString("0.0") + "%";
+            if (!createCommands) return;
+            switchFanOn_Change(null);
         }
 
         private void trackExtruderSpeed_ValueChanged(object sender, EventArgs e)
@@ -348,6 +362,7 @@ namespace RepetierHost.view
         private void switchExtruderHeatOn_Change(SwitchButton b)
         {
             if (Main.conn.connected == false) return;
+            if (!createCommands) return;
             int temp = 0;
             int.TryParse(textExtruderSetTemp.Text,out temp);
             con.GetInjectLock();
@@ -377,6 +392,7 @@ namespace RepetierHost.view
         private void switchBedHeat_Change(SwitchButton b)
         {
             if (Main.conn.connected == false) return;
+            if (!createCommands) return;
             int temp = 0;
             int.TryParse(textPrintbedTemp.Text, out temp);
             con.GetInjectLock();
@@ -481,6 +497,19 @@ namespace RepetierHost.view
         private void buttonJobStatus_Click(object sender, EventArgs e)
         {
             JobStatus.ShowStatus();
+        }
+
+        private void textGCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            {
+                if (e.KeyChar == '\r')
+                    e.Handled = true;
+            }
+        }
+
+        private void buttonStopMotor_Click(object sender, EventArgs e)
+        {
+            con.injectManualCommand("M84");
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GlobalSettings));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textWorkdir = new System.Windows.Forms.TextBox();
-            this.buttonSearchWorkdir = new System.Windows.Forms.Button();
-            this.checkLogfile = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkLogfile = new System.Windows.Forms.CheckBox();
+            this.buttonSearchWorkdir = new System.Windows.Forms.Button();
+            this.textWorkdir = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonAbort = new System.Windows.Forms.Button();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
@@ -55,31 +55,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Files and directories";
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Work directory:";
-            // 
-            // textWorkdir
-            // 
-            this.textWorkdir.Location = new System.Drawing.Point(93, 20);
-            this.textWorkdir.Name = "textWorkdir";
-            this.textWorkdir.Size = new System.Drawing.Size(307, 20);
-            this.textWorkdir.TabIndex = 0;
-            // 
-            // buttonSearchWorkdir
-            // 
-            this.buttonSearchWorkdir.Location = new System.Drawing.Point(406, 20);
-            this.buttonSearchWorkdir.Name = "buttonSearchWorkdir";
-            this.buttonSearchWorkdir.Size = new System.Drawing.Size(58, 23);
-            this.buttonSearchWorkdir.TabIndex = 1;
-            this.buttonSearchWorkdir.Text = "Search";
-            this.buttonSearchWorkdir.UseVisualStyleBackColor = true;
-            this.buttonSearchWorkdir.Click += new System.EventHandler(this.buttonSearchWorkdir_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(448, 52);
+            this.label2.TabIndex = 4;
+            this.label2.Text = resources.GetString("label2.Text");
             // 
             // checkLogfile
             // 
@@ -91,14 +74,31 @@
             this.checkLogfile.Text = "Log session";
             this.checkLogfile.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // buttonSearchWorkdir
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(448, 52);
-            this.label2.TabIndex = 4;
-            this.label2.Text = resources.GetString("label2.Text");
+            this.buttonSearchWorkdir.Location = new System.Drawing.Point(406, 20);
+            this.buttonSearchWorkdir.Name = "buttonSearchWorkdir";
+            this.buttonSearchWorkdir.Size = new System.Drawing.Size(64, 23);
+            this.buttonSearchWorkdir.TabIndex = 1;
+            this.buttonSearchWorkdir.Text = "Browse ...";
+            this.buttonSearchWorkdir.UseVisualStyleBackColor = true;
+            this.buttonSearchWorkdir.Click += new System.EventHandler(this.buttonSearchWorkdir_Click);
+            // 
+            // textWorkdir
+            // 
+            this.textWorkdir.Location = new System.Drawing.Point(93, 20);
+            this.textWorkdir.Name = "textWorkdir";
+            this.textWorkdir.Size = new System.Drawing.Size(307, 20);
+            this.textWorkdir.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Work directory:";
             // 
             // buttonOK
             // 
@@ -116,7 +116,7 @@
             this.buttonAbort.Name = "buttonAbort";
             this.buttonAbort.Size = new System.Drawing.Size(75, 23);
             this.buttonAbort.TabIndex = 1;
-            this.buttonAbort.Text = "Abort";
+            this.buttonAbort.Text = "Cancel";
             this.buttonAbort.UseVisualStyleBackColor = true;
             this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
             // 

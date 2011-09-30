@@ -91,7 +91,7 @@
             this.buttonAbort.Name = "buttonAbort";
             this.buttonAbort.Size = new System.Drawing.Size(75, 23);
             this.buttonAbort.TabIndex = 3;
-            this.buttonAbort.Text = "Abort";
+            this.buttonAbort.Text = "Cancel";
             this.buttonAbort.UseVisualStyleBackColor = true;
             this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
             // 

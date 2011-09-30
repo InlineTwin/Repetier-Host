@@ -98,6 +98,9 @@
             this.buttonAbort = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label32 = new System.Windows.Forms.Label();
+            this.textDisposeZ = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.panelPrinterSelect.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageConnection.SuspendLayout();
@@ -215,7 +218,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(169, 23);
             this.buttonDelete.TabIndex = 6;
-            this.buttonDelete.Text = "Delete this printer settings";
+            this.buttonDelete.Text = "Delete these printer settings";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
@@ -337,6 +340,9 @@
             // 
             // tabPagePrinter
             // 
+            this.tabPagePrinter.Controls.Add(this.label33);
+            this.tabPagePrinter.Controls.Add(this.textDisposeZ);
+            this.tabPagePrinter.Controls.Add(this.label32);
             this.tabPagePrinter.Controls.Add(this.checkDisbaleHeatedBedAfterJob);
             this.tabPagePrinter.Controls.Add(this.checkDisableExtruderAfterJob);
             this.tabPagePrinter.Controls.Add(this.checkGoDisposeAfterJob);
@@ -370,7 +376,7 @@
             this.checkDisbaleHeatedBedAfterJob.Location = new System.Drawing.Point(15, 194);
             this.checkDisbaleHeatedBedAfterJob.Name = "checkDisbaleHeatedBedAfterJob";
             this.checkDisbaleHeatedBedAfterJob.Size = new System.Drawing.Size(193, 17);
-            this.checkDisbaleHeatedBedAfterJob.TabIndex = 7;
+            this.checkDisbaleHeatedBedAfterJob.TabIndex = 10;
             this.checkDisbaleHeatedBedAfterJob.Text = "Disable heated bed after job/job kill";
             this.checkDisbaleHeatedBedAfterJob.UseVisualStyleBackColor = true;
             // 
@@ -382,7 +388,7 @@
             this.checkDisableExtruderAfterJob.Location = new System.Drawing.Point(15, 170);
             this.checkDisableExtruderAfterJob.Name = "checkDisableExtruderAfterJob";
             this.checkDisableExtruderAfterJob.Size = new System.Drawing.Size(177, 17);
-            this.checkDisableExtruderAfterJob.TabIndex = 6;
+            this.checkDisableExtruderAfterJob.TabIndex = 9;
             this.checkDisableExtruderAfterJob.Text = "Disable extruder after job/job kill";
             this.checkDisableExtruderAfterJob.UseVisualStyleBackColor = true;
             // 
@@ -394,7 +400,7 @@
             this.checkGoDisposeAfterJob.Location = new System.Drawing.Point(15, 146);
             this.checkGoDisposeAfterJob.Name = "checkGoDisposeAfterJob";
             this.checkGoDisposeAfterJob.Size = new System.Drawing.Size(190, 17);
-            this.checkGoDisposeAfterJob.TabIndex = 5;
+            this.checkGoDisposeAfterJob.TabIndex = 8;
             this.checkGoDisposeAfterJob.Text = "Go to dispose area after job/job kill";
             this.checkGoDisposeAfterJob.UseVisualStyleBackColor = true;
             // 
@@ -412,7 +418,7 @@
             this.textDisposeY.Location = new System.Drawing.Point(218, 119);
             this.textDisposeY.Name = "textDisposeY";
             this.textDisposeY.Size = new System.Drawing.Size(57, 20);
-            this.textDisposeY.TabIndex = 14;
+            this.textDisposeY.TabIndex = 6;
             this.textDisposeY.Text = "0";
             this.textDisposeY.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
             // 
@@ -421,7 +427,7 @@
             this.textDisposeX.Location = new System.Drawing.Point(129, 119);
             this.textDisposeX.Name = "textDisposeX";
             this.textDisposeX.Size = new System.Drawing.Size(60, 20);
-            this.textDisposeX.TabIndex = 4;
+            this.textDisposeX.TabIndex = 5;
             this.textDisposeX.Text = "130";
             this.textDisposeX.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
             // 
@@ -439,9 +445,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(12, 119);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 13);
+            this.label13.Size = new System.Drawing.Size(101, 13);
             this.label13.TabIndex = 11;
-            this.label13.Text = "Dispose position:";
+            this.label13.Text = "Dump area position:";
             // 
             // label12
             // 
@@ -449,7 +455,7 @@
             this.label12.Location = new System.Drawing.Point(118, 83);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 13);
-            this.label12.TabIndex = 10;
+            this.label12.TabIndex = 3;
             this.label12.Text = "seconds.";
             // 
             // labelCheckInterval
@@ -458,7 +464,7 @@
             this.labelCheckInterval.Location = new System.Drawing.Point(86, 83);
             this.labelCheckInterval.Name = "labelCheckInterval";
             this.labelCheckInterval.Size = new System.Drawing.Size(13, 13);
-            this.labelCheckInterval.TabIndex = 9;
+            this.labelCheckInterval.TabIndex = 2;
             this.labelCheckInterval.Text = "3";
             // 
             // label11
@@ -478,7 +484,7 @@
             this.trackTempPeriod.Minimum = 1;
             this.trackTempPeriod.Name = "trackTempPeriod";
             this.trackTempPeriod.Size = new System.Drawing.Size(190, 45);
-            this.trackTempPeriod.TabIndex = 3;
+            this.trackTempPeriod.TabIndex = 4;
             this.trackTempPeriod.TickFrequency = 5;
             this.trackTempPeriod.Value = 3;
             this.trackTempPeriod.ValueChanged += new System.EventHandler(this.trackTempPeriod_ValueChanged);
@@ -809,7 +815,7 @@
             this.buttonAbort.Name = "buttonAbort";
             this.buttonAbort.Size = new System.Drawing.Size(75, 23);
             this.buttonAbort.TabIndex = 2;
-            this.buttonAbort.Text = "Abort";
+            this.buttonAbort.Text = "Cancel";
             this.buttonAbort.UseVisualStyleBackColor = true;
             this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
             // 
@@ -826,6 +832,33 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(281, 122);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 13);
+            this.label32.TabIndex = 16;
+            this.label32.Text = "Z-Min:";
+            // 
+            // textDisposeZ
+            // 
+            this.textDisposeZ.Location = new System.Drawing.Point(324, 119);
+            this.textDisposeZ.Name = "textDisposeZ";
+            this.textDisposeZ.Size = new System.Drawing.Size(52, 20);
+            this.textDisposeZ.TabIndex = 7;
+            this.textDisposeZ.Text = "0";
+            this.textDisposeZ.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(396, 122);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(29, 13);
+            this.label33.TabIndex = 18;
+            this.label33.Text = "[mm]";
             // 
             // FormPrinterSettings
             // 
@@ -929,5 +962,8 @@
         private System.Windows.Forms.TextBox textDumpAreaFront;
         private System.Windows.Forms.CheckBox checkPingPong;
         public System.Windows.Forms.ComboBox comboPrinter;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox textDisposeZ;
+        private System.Windows.Forms.Label label32;
     }
 }

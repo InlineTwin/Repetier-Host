@@ -34,15 +34,17 @@ namespace RepetierHost.model
         public float x=0, y=0, z=0, e=0,emax=0;
         public float xOffset=0, yOffset=0, zOffset=0, eOffset=0;
         public bool fanOn = false;
-        public float fanVoltage = 0;
+        public int fanVoltage = 0;
         public bool powerOn = true;
         public bool relative = false;
         public bool eRelative = false;
         public int debugLevel = 6;
         public int lastline = 0;
         public bool hasXHome = false, hasYHome = false, hasZHome = false;
-        public GCodeAnalyzer()
+        public bool privateAnalyzer = false;
+        public GCodeAnalyzer(bool privAnal)
         {
+            privateAnalyzer = privAnal;
             extruderTemp = 0;
             bedTemp = 0;
         }
@@ -160,7 +162,7 @@ namespace RepetierHost.model
                         break;
                     case 106:
                         fanOn = true;
-                        if (code.hasS) fanVoltage = 12.0f * (float)code.S / 255.0f;
+                        if (code.hasS) fanVoltage = code.S;
                         fireChanged();
                         break;
                     case 107:

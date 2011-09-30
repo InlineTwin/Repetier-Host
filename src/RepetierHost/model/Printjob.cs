@@ -55,6 +55,13 @@ namespace RepetierHost.model
         }
         public void EndJob()
         {
+            if (jobList.Count == 0)
+            {
+                mode = 0;
+                con.firePrinterAction("Idle");
+                Main.main.Invoke(Main.main.UpdateJobButtons);
+                return;
+            }
             dataComplete = true;
             jobStarted = DateTime.Now;
             con.firePrinterAction("Printing...");

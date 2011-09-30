@@ -113,7 +113,7 @@
             this.buttonLand.Name = "buttonLand";
             this.buttonLand.Size = new System.Drawing.Size(114, 23);
             this.buttonLand.TabIndex = 14;
-            this.buttonLand.Text = "Land object";
+            this.buttonLand.Text = "Drop object";
             this.buttonLand.UseVisualStyleBackColor = true;
             this.buttonLand.Click += new System.EventHandler(this.buttonLand_Click);
             // 
@@ -181,9 +181,9 @@
             this.checkScaleAll.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkScaleAll.Location = new System.Drawing.Point(9, 122);
             this.checkScaleAll.Name = "checkScaleAll";
-            this.checkScaleAll.Size = new System.Drawing.Size(95, 17);
+            this.checkScaleAll.Size = new System.Drawing.Size(108, 17);
             this.checkScaleAll.TabIndex = 8;
-            this.checkScaleAll.Text = "Scale all like X";
+            this.checkScaleAll.Text = "Lock aspect ratio";
             this.checkScaleAll.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -382,7 +382,7 @@
             this.buttonSlice.Name = "buttonSlice";
             this.buttonSlice.Size = new System.Drawing.Size(113, 23);
             this.buttonSlice.TabIndex = 1;
-            this.buttonSlice.Text = "Slice && Load";
+            this.buttonSlice.Text = "Generate G-Code";
             this.buttonSlice.UseVisualStyleBackColor = true;
             this.buttonSlice.Click += new System.EventHandler(this.buttonSlice_Click);
             // 
@@ -393,7 +393,7 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(121, 23);
             this.buttonSave.TabIndex = 0;
-            this.buttonSave.Text = "Save composition";
+            this.buttonSave.Text = "Save as STL";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 

@@ -95,6 +95,7 @@
             this.switchEcho = new RepetierHost.view.SwitchButton();
             this.switchPower = new RepetierHost.view.SwitchButton();
             this.switchConnect = new RepetierHost.view.SwitchButton();
+            this.buttonStopMotor = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackExtruderSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackExtruderLength)).BeginInit();
@@ -129,6 +130,7 @@
             this.textGCode.Size = new System.Drawing.Size(305, 20);
             this.textGCode.TabIndex = 8;
             this.textGCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textGCode_KeyDown);
+            this.textGCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textGCode_KeyPress);
             // 
             // buttonSend
             // 
@@ -644,9 +646,9 @@
             this.labelVoltage.AutoSize = true;
             this.labelVoltage.Location = new System.Drawing.Point(110, 16);
             this.labelVoltage.Name = "labelVoltage";
-            this.labelVoltage.Size = new System.Drawing.Size(43, 13);
+            this.labelVoltage.Size = new System.Drawing.Size(39, 13);
             this.labelVoltage.TabIndex = 2;
-            this.labelVoltage.Text = "Voltage";
+            this.labelVoltage.Text = "Output";
             // 
             // trackFanVoltage
             // 
@@ -665,9 +667,9 @@
             // 
             this.buttonGoDisposeArea.Location = new System.Drawing.Point(88, 179);
             this.buttonGoDisposeArea.Name = "buttonGoDisposeArea";
-            this.buttonGoDisposeArea.Size = new System.Drawing.Size(75, 23);
+            this.buttonGoDisposeArea.Size = new System.Drawing.Size(84, 23);
             this.buttonGoDisposeArea.TabIndex = 38;
-            this.buttonGoDisposeArea.Text = "Go dispose";
+            this.buttonGoDisposeArea.Text = "Go dump area";
             this.buttonGoDisposeArea.UseVisualStyleBackColor = true;
             this.buttonGoDisposeArea.Click += new System.EventHandler(this.buttonGoDisposeArea_Click);
             // 
@@ -790,11 +792,22 @@
             this.switchConnect.TextOn = "Disconnect";
             this.switchConnect.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchConnect_Changed);
             // 
+            // buttonStopMotor
+            // 
+            this.buttonStopMotor.Location = new System.Drawing.Point(179, 180);
+            this.buttonStopMotor.Name = "buttonStopMotor";
+            this.buttonStopMotor.Size = new System.Drawing.Size(75, 23);
+            this.buttonStopMotor.TabIndex = 44;
+            this.buttonStopMotor.Text = "Stop motor";
+            this.buttonStopMotor.UseVisualStyleBackColor = true;
+            this.buttonStopMotor.Click += new System.EventHandler(this.buttonStopMotor_Click);
+            // 
             // PrintPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.buttonStopMotor);
             this.Controls.Add(this.buttonSimulateOK);
             this.Controls.Add(this.buttonGoDisposeArea);
             this.Controls.Add(this.groupBox3);
@@ -926,5 +939,6 @@
         private SwitchButton switchFanOn;
         private System.Windows.Forms.Button buttonGoDisposeArea;
         private System.Windows.Forms.Button buttonSimulateOK;
+        private System.Windows.Forms.Button buttonStopMotor;
     }
 }

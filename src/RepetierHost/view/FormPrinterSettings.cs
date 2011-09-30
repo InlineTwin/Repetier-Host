@@ -77,6 +77,7 @@ namespace RepetierHost.view
             p.SetValue("checkTempInterval", trackTempPeriod.Value);
             p.SetValue("disposeX", textDisposeX.Text);
             p.SetValue("disposeY", textDisposeY.Text);
+            p.SetValue("disposeZ", textDisposeZ.Text);
             p.SetValue("goDisposeAfterJob", checkGoDisposeAfterJob.Checked ? 1 : 0);
             p.SetValue("disableHeatedBetAfterJob", checkDisbaleHeatedBedAfterJob.Checked ? 1 : 0);
             p.SetValue("disableExtruderAfterJob", checkDisableExtruderAfterJob.Checked ? 1 : 0);
@@ -108,7 +109,8 @@ namespace RepetierHost.view
             trackTempPeriod.Value = (int)p.GetValue("checkTempInterval", trackTempPeriod.Value);
             textDisposeX.Text = (string)p.GetValue("disposeX", textDisposeX.Text);
             textDisposeY.Text = (string)p.GetValue("disposeY", textDisposeY.Text);
-            checkGoDisposeAfterJob.Checked = 1==(int)p.GetValue("goDisposeAfterJob", checkGoDisposeAfterJob.Checked ? 1 : 0);
+            textDisposeZ.Text = (string)p.GetValue("disposeZ", textDisposeZ.Text);
+            checkGoDisposeAfterJob.Checked = 1 == (int)p.GetValue("goDisposeAfterJob", checkGoDisposeAfterJob.Checked ? 1 : 0);
             checkDisbaleHeatedBedAfterJob.Checked = 1 == (int)p.GetValue("disableHeatedBetAfterJob", checkDisbaleHeatedBedAfterJob.Checked ? 1 : 0);
             checkDisableExtruderAfterJob.Checked = 1 == (int)p.GetValue("disableExtruderAfterJob", checkDisableExtruderAfterJob.Checked ? 1 : 0);
             labelCheckInterval.Text = trackTempPeriod.Value.ToString();
@@ -162,6 +164,7 @@ namespace RepetierHost.view
             con.autocheckInterval = trackTempPeriod.Value*1000;
             float.TryParse(textDisposeX.Text, NumberStyles.Float, GCode.format, out con.disposeX);
             float.TryParse(textDisposeY.Text, NumberStyles.Float, GCode.format, out con.disposeY);
+            float.TryParse(textDisposeZ.Text, NumberStyles.Float, GCode.format, out con.disposeZ);
             con.afterJobGoDispose = checkGoDisposeAfterJob.Checked;
             con.afterJobDisableExtruder = checkDisableExtruderAfterJob.Checked;
             con.afterJobDisablePrintbed = checkDisbaleHeatedBedAfterJob.Checked;
@@ -196,6 +199,7 @@ namespace RepetierHost.view
             trackTempPeriod.Value = (int)(con.autocheckInterval/1000);
             textDisposeX.Text = con.disposeX.ToString(GCode.format);
             textDisposeY.Text = con.disposeY.ToString(GCode.format);
+            textDisposeZ.Text = con.disposeZ.ToString(GCode.format);
             checkGoDisposeAfterJob.Checked = con.afterJobGoDispose;
             checkDisableExtruderAfterJob.Checked = con.afterJobDisableExtruder;
             checkDisbaleHeatedBedAfterJob.Checked = con.afterJobDisablePrintbed;

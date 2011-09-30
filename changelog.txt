@@ -1,3 +1,8 @@
+Version 0.25 30.9.2011
+  Fixed bug with fan slider
+  Fixed analycer related bug, disabling temp. on job start
+  Fixed spellings and gui.
+
 Version 0.24 28.9.2011
   Fixed black 3d screen for high printer dimensions.
 

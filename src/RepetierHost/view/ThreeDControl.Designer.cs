@@ -81,8 +81,8 @@
             this.toolMove.Image = ((System.Drawing.Image)(resources.GetObject("toolMove.Image")));
             this.toolMove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolMove.Name = "toolMove";
-            this.toolMove.Size = new System.Drawing.Size(87, 22);
-            this.toolMove.Text = "Move position";
+            this.toolMove.Size = new System.Drawing.Size(83, 22);
+            this.toolMove.Text = "Move camera";
             this.toolMove.Click += new System.EventHandler(this.toolMove_Click);
             // 
             // toolMoveViewpoint

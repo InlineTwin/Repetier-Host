@@ -39,6 +39,11 @@ namespace RepetierHost.view
             repetierKey = Registry.CurrentUser.CreateSubKey("Software\\Repetier");
             regToForm();
         }
+        public string wrapQuotes(string text)
+        {
+            if (text.StartsWith("\"") && text.EndsWith("\"")) return text;
+            return "\"" + text.Replace("\"","\\\"") + "\"";
+        }
         public void RunSkeinforge()
         {
             if (procSkein != null)
@@ -50,8 +55,8 @@ namespace RepetierHost.view
             {
                 procSkein.EnableRaisingEvents = true;
                 procSkein.Exited += new EventHandler(SkeinExited);
-                procSkein.StartInfo.FileName = textPython.Text;
-                procSkein.StartInfo.Arguments = textSkainforge.Text;
+                procSkein.StartInfo.FileName = wrapQuotes(textPython.Text);
+                procSkein.StartInfo.Arguments = wrapQuotes(textSkainforge.Text);
                 procSkein.StartInfo.UseShellExecute = false;
                 procSkein.StartInfo.RedirectStandardOutput = true;
                 procSkein.OutputDataReceived += new DataReceivedEventHandler(OutputDataHandler);
@@ -80,8 +85,8 @@ namespace RepetierHost.view
                 slicefile = file;
                 procConvert.EnableRaisingEvents = true;
                 procConvert.Exited += new EventHandler(ConversionExited);
-                procConvert.StartInfo.FileName = textPython.Text;
-                procConvert.StartInfo.Arguments = textSkeinforgeCraft.Text+" "+file;
+                procConvert.StartInfo.FileName = wrapQuotes(textPython.Text);
+                procConvert.StartInfo.Arguments = wrapQuotes(textSkeinforgeCraft.Text) + " " + wrapQuotes(file);
                 procConvert.StartInfo.UseShellExecute = false;
                 procConvert.StartInfo.RedirectStandardOutput = true;
                 procConvert.OutputDataReceived += new DataReceivedEventHandler(OutputDataHandler);
@@ -91,6 +96,7 @@ namespace RepetierHost.view
                 // Start the asynchronous read of the standard output stream.
                 procConvert.BeginOutputReadLine();
                 procConvert.BeginErrorReadLine();
+                Main.main.tab.SelectedTab = Main.main.tabPrint;
             }
             catch (Exception e)
             {

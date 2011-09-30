@@ -49,7 +49,7 @@ namespace RepetierHost.model
         public event OnJobProgress eventJobProgress;
         public event OnTempMonitor eventTempMonitor;
         TextWriter logWriter = null;
-        public GCodeAnalyzer analyzer = new GCodeAnalyzer();
+        public GCodeAnalyzer analyzer = new GCodeAnalyzer(false);
         public bool connected = false;
         // ======== Printer data =============
         public string printerName = "default";
@@ -66,6 +66,7 @@ namespace RepetierHost.model
         public float maxZFeedRate = 100;
         public float disposeX=130;
         public float disposeY = 0;
+        public float disposeZ = 0;
         public bool afterJobGoDispose = true;
         public bool afterJobDisableExtruder = true;
         public bool afterJobDisablePrintbed = true;
@@ -821,8 +822,15 @@ namespace RepetierHost.model
             if (analyzer.hasXHome == false || analyzer.hasYHome == false) return; // don't know where we are
             float dx = disposeX - analyzer.xOffset-(analyzer.relative?analyzer.x:0);
             float dy = disposeY - analyzer.yOffset - (analyzer.relative ? analyzer.y : 0);
+            string zextra = "";
             GetInjectLock();
             injectManualCommand("G1 X" + dx.ToString(GCode.format) + " Y" + dy.ToString(GCode.format) + " F" + travelFeedRate.ToString(GCode.format));
+            if (analyzer.hasZHome && analyzer.z - analyzer.zOffset < disposeZ && disposeZ > 0 && disposeZ < Main.printerSettings.PrintAreaHeight)
+            {
+                float dz = disposeZ - analyzer.zOffset - (analyzer.relative ? analyzer.z : 0);
+                zextra = "G1 Z" + dz.ToString(GCode.format) + " F" + maxZFeedRate.ToString(GCode.format);
+                injectManualCommand(zextra);
+            }
             ReturnInjectLock();
         }
     }

@@ -75,7 +75,7 @@
             this.buttonSerach.Name = "buttonSerach";
             this.buttonSerach.Size = new System.Drawing.Size(75, 23);
             this.buttonSerach.TabIndex = 2;
-            this.buttonSerach.Text = "Search";
+            this.buttonSerach.Text = "Browse ...";
             this.buttonSerach.UseVisualStyleBackColor = true;
             this.buttonSerach.Click += new System.EventHandler(this.buttonSerach_Click);
             // 
@@ -129,7 +129,7 @@
             this.buttonAbort.Name = "buttonAbort";
             this.buttonAbort.Size = new System.Drawing.Size(75, 23);
             this.buttonAbort.TabIndex = 8;
-            this.buttonAbort.Text = "Abort";
+            this.buttonAbort.Text = "Cancel";
             this.buttonAbort.UseVisualStyleBackColor = true;
             this.buttonAbort.Click += new System.EventHandler(this.buttonAbort_Click);
             // 
@@ -155,7 +155,7 @@
             this.buttonSerachPy.Name = "buttonSerachPy";
             this.buttonSerachPy.Size = new System.Drawing.Size(75, 23);
             this.buttonSerachPy.TabIndex = 11;
-            this.buttonSerachPy.Text = "Serach";
+            this.buttonSerachPy.Text = "Browse ...";
             this.buttonSerachPy.UseVisualStyleBackColor = true;
             this.buttonSerachPy.Click += new System.EventHandler(this.buttonSerachPy_Click);
             // 
@@ -186,7 +186,7 @@
             this.buttonSearchCraft.Name = "buttonSearchCraft";
             this.buttonSearchCraft.Size = new System.Drawing.Size(75, 23);
             this.buttonSearchCraft.TabIndex = 2;
-            this.buttonSearchCraft.Text = "Search";
+            this.buttonSearchCraft.Text = "Browse ...";
             this.buttonSearchCraft.UseVisualStyleBackColor = true;
             this.buttonSearchCraft.Click += new System.EventHandler(this.buttonSearchCraft_Click);
             // 

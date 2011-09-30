@@ -135,19 +135,19 @@
             // 
             this.loadGCodeToolStripMenuItem.Name = "loadGCodeToolStripMenuItem";
             this.loadGCodeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.loadGCodeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.loadGCodeToolStripMenuItem.Text = "&Load GCode";
+            this.loadGCodeToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.loadGCodeToolStripMenuItem.Text = "&Load G-Code";
             this.loadGCodeToolStripMenuItem.Click += new System.EventHandler(this.toolGCodeLoad_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(155, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(160, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.quitToolStripMenuItem.Text = "&Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -234,7 +234,7 @@
             this.printerInformationsToolStripMenuItem.Name = "printerInformationsToolStripMenuItem";
             this.printerInformationsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.printerInformationsToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.printerInformationsToolStripMenuItem.Text = "Printer informations";
+            this.printerInformationsToolStripMenuItem.Text = "Printer information";
             this.printerInformationsToolStripMenuItem.Click += new System.EventHandler(this.printerInformationsToolStripMenuItem_Click);
             // 
             // jobStatusToolStripMenuItem
@@ -674,7 +674,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.Name = "Main";
-            this.Text = "Repetier-Host V0.24";
+            this.Text = "Repetier-Host V0.25";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
@@ -719,9 +719,6 @@
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutRepetierHostToolStripMenuItem;
-        private System.Windows.Forms.TabControl tab;
-        private System.Windows.Forms.TabPage tabPrint;
-        private System.Windows.Forms.TabPage tabGCode;
         private System.Windows.Forms.ToolStripStatusLabel toolConnection;
         private System.Windows.Forms.ToolStripStatusLabel toolAction;
         private System.Windows.Forms.ToolStripProgressBar toolProgress;
@@ -744,7 +741,6 @@
         private System.Windows.Forms.ToolStripMenuItem temperatureMonitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skeinforgeSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skeinforgeToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabModel;
         private System.Windows.Forms.ToolStripMenuItem threeDSettingsMenu;
         private System.Windows.Forms.ToolStripMenuItem printerInformationsToolStripMenuItem;
         private RepetierHost.view.STLComposer stlComposer1;
@@ -768,6 +764,10 @@
         private System.Windows.Forms.ToolStripMenuItem internalSlicingParameterToolStripMenuItem;
         public System.Windows.Forms.TabControl tabGCodes;
         public System.Windows.Forms.TextBox textGCodePrepend;
+        public System.Windows.Forms.TabControl tab;
+        public System.Windows.Forms.TabPage tabPrint;
+        public System.Windows.Forms.TabPage tabGCode;
+        public System.Windows.Forms.TabPage tabModel;
     }
 }
 

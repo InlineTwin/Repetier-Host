@@ -169,21 +169,25 @@ namespace RepetierHost.model
     public class GCodeVisual : ThreeDModel
     {
         LinkedList<GCodePath> segments = new LinkedList<GCodePath>();
-        GCodeAnalyzer ana = new GCodeAnalyzer();
+        GCodeAnalyzer ana = new GCodeAnalyzer(true);
         public GCode act = null;
         public float lastFilHeight = 999;
         public float lastFilWidth = 999;
         public float laste = -999;
         float lastx = 1e20f, lasty = 0, lastz = 0;
         bool changed = false;
+        public bool startOnClear = false;
+
         public GCodeVisual()
         {
-            ana = new GCodeAnalyzer();
+            ana = new GCodeAnalyzer(true);
+            startOnClear = true;
             ana.eventPosChanged += OnPosChange;
         }
         public GCodeVisual(GCodeAnalyzer a)
         {
             ana = a;
+            startOnClear = false;
             ana.eventPosChanged += OnPosChange;
         }
 
@@ -206,7 +210,8 @@ namespace RepetierHost.model
                 p.Free();
             segments.Clear();
             lastx = 1e20f; // Don't ignore first point if it was the last! 
-            ana.start();
+            if(startOnClear)
+                ana.start();
         }
         void OnPosChange(GCode act,float x, float y, float z)
         {
