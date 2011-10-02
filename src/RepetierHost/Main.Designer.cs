@@ -84,10 +84,10 @@
             this.toolGCodeCol = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolGCodeRow = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabModel = new System.Windows.Forms.TabPage();
+            this.stlComposer1 = new RepetierHost.view.STLComposer();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.openGCode = new System.Windows.Forms.OpenFileDialog();
             this.saveJobDialog = new System.Windows.Forms.SaveFileDialog();
-            this.stlComposer1 = new RepetierHost.view.STLComposer();
             this.menu.SuspendLayout();
             this.status.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -634,6 +634,14 @@
             this.tabModel.Text = "Model";
             this.tabModel.UseVisualStyleBackColor = true;
             // 
+            // stlComposer1
+            // 
+            this.stlComposer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stlComposer1.Location = new System.Drawing.Point(0, 0);
+            this.stlComposer1.Name = "stlComposer1";
+            this.stlComposer1.Size = new System.Drawing.Size(934, 416);
+            this.stlComposer1.TabIndex = 0;
+            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
@@ -646,21 +654,13 @@
             // 
             this.openGCode.DefaultExt = "gcode";
             this.openGCode.Filter = "GCode/STL-Files|*.gcode;*.stl|All files|*.*";
-            this.openGCode.Title = "Import GCode";
+            this.openGCode.Title = "Import G-Code";
             // 
             // saveJobDialog
             // 
             this.saveJobDialog.DefaultExt = "gcode";
             this.saveJobDialog.Filter = "GCode|*.gcode|All files|*.*";
             this.saveJobDialog.Title = "Save G-Code";
-            // 
-            // stlComposer1
-            // 
-            this.stlComposer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stlComposer1.Location = new System.Drawing.Point(0, 0);
-            this.stlComposer1.Name = "stlComposer1";
-            this.stlComposer1.Size = new System.Drawing.Size(934, 416);
-            this.stlComposer1.TabIndex = 0;
             // 
             // Main
             // 
@@ -674,7 +674,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.Name = "Main";
-            this.Text = "Repetier-Host V0.25";
+            this.Text = "Repetier-Host V0.26";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();

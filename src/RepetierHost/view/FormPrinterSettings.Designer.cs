@@ -51,6 +51,9 @@
             this.comboPort = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPagePrinter = new System.Windows.Forms.TabPage();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textDisposeZ = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.checkDisbaleHeatedBedAfterJob = new System.Windows.Forms.CheckBox();
             this.checkDisableExtruderAfterJob = new System.Windows.Forms.CheckBox();
             this.checkGoDisposeAfterJob = new System.Windows.Forms.CheckBox();
@@ -98,9 +101,6 @@
             this.buttonAbort = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label32 = new System.Windows.Forms.Label();
-            this.textDisposeZ = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
             this.panelPrinterSelect.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageConnection.SuspendLayout();
@@ -153,6 +153,7 @@
             // 
             // tabPageConnection
             // 
+            this.tabPageConnection.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageConnection.Controls.Add(this.checkPingPong);
             this.tabPageConnection.Controls.Add(this.label17);
             this.tabPageConnection.Controls.Add(this.textReceiveCacheSize);
@@ -174,7 +175,6 @@
             this.tabPageConnection.Size = new System.Drawing.Size(450, 396);
             this.tabPageConnection.TabIndex = 0;
             this.tabPageConnection.Text = "Connection";
-            this.tabPageConnection.UseVisualStyleBackColor = true;
             // 
             // checkPingPong
             // 
@@ -340,6 +340,7 @@
             // 
             // tabPagePrinter
             // 
+            this.tabPagePrinter.BackColor = System.Drawing.SystemColors.Control;
             this.tabPagePrinter.Controls.Add(this.label33);
             this.tabPagePrinter.Controls.Add(this.textDisposeZ);
             this.tabPagePrinter.Controls.Add(this.label32);
@@ -368,7 +369,33 @@
             this.tabPagePrinter.Size = new System.Drawing.Size(450, 396);
             this.tabPagePrinter.TabIndex = 1;
             this.tabPagePrinter.Text = "Printer";
-            this.tabPagePrinter.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(396, 122);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(29, 13);
+            this.label33.TabIndex = 18;
+            this.label33.Text = "[mm]";
+            // 
+            // textDisposeZ
+            // 
+            this.textDisposeZ.Location = new System.Drawing.Point(324, 119);
+            this.textDisposeZ.Name = "textDisposeZ";
+            this.textDisposeZ.Size = new System.Drawing.Size(52, 20);
+            this.textDisposeZ.TabIndex = 7;
+            this.textDisposeZ.Text = "0";
+            this.textDisposeZ.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(281, 122);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(37, 13);
+            this.label32.TabIndex = 16;
+            this.label32.Text = "Z-Min:";
             // 
             // checkDisbaleHeatedBedAfterJob
             // 
@@ -478,7 +505,7 @@
             // 
             // trackTempPeriod
             // 
-            this.trackTempPeriod.BackColor = System.Drawing.SystemColors.Window;
+            this.trackTempPeriod.BackColor = System.Drawing.SystemColors.Control;
             this.trackTempPeriod.Location = new System.Drawing.Point(187, 82);
             this.trackTempPeriod.Maximum = 60;
             this.trackTempPeriod.Minimum = 1;
@@ -557,6 +584,7 @@
             // 
             // tabPageShape
             // 
+            this.tabPageShape.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageShape.Controls.Add(this.label31);
             this.tabPageShape.Controls.Add(this.label30);
             this.tabPageShape.Controls.Add(this.label29);
@@ -584,7 +612,6 @@
             this.tabPageShape.Size = new System.Drawing.Size(450, 396);
             this.tabPageShape.TabIndex = 2;
             this.tabPageShape.Text = "Printer shape";
-            this.tabPageShape.UseVisualStyleBackColor = true;
             // 
             // label31
             // 
@@ -832,33 +859,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(281, 122);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(37, 13);
-            this.label32.TabIndex = 16;
-            this.label32.Text = "Z-Min:";
-            // 
-            // textDisposeZ
-            // 
-            this.textDisposeZ.Location = new System.Drawing.Point(324, 119);
-            this.textDisposeZ.Name = "textDisposeZ";
-            this.textDisposeZ.Size = new System.Drawing.Size(52, 20);
-            this.textDisposeZ.TabIndex = 7;
-            this.textDisposeZ.Text = "0";
-            this.textDisposeZ.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(396, 122);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(29, 13);
-            this.label33.TabIndex = 18;
-            this.label33.Text = "[mm]";
             // 
             // FormPrinterSettings
             // 

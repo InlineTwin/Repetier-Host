@@ -347,6 +347,11 @@ namespace RepetierHost.view
                 Main.globalSettings.Show();
                 return;
             }
+            if (listSTLObjects.Items.Count == 0) return;
+            string t = listSTLObjects.Items[0].ToString();
+            if (listSTLObjects.Items.Count > 1)
+                t += " + " + (listSTLObjects.Items.Count - 1).ToString();
+            Main.main.Title = t;
             dir+="/composition.stl";
             saveComposition(dir);
             Main.main.skeinforge.RunSlice(dir); // Slice it and load

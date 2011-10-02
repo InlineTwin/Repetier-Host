@@ -114,12 +114,26 @@ namespace RepetierHost.model
                             Main.main.Invoke(eventPosChanged,code, x, y, z);
                         break;
                     case 28:
-                        if (code.hasX) { xOffset = 0; x = 0; hasXHome = true; }
-                        if (code.hasY) { yOffset = 0; y = 0; hasYHome = true; }
-                        if (code.hasZ) { zOffset = 0; z = 0; hasZHome = true; }
-                        if (code.hasE) { eOffset = 0; e = 0; emax = 0; }
-                        if (eventPosChanged != null)
-                            Main.main.Invoke(eventPosChanged,code, x, y, z);
+                    case 161:
+                        {
+                            bool homeAll = !(code.hasX || code.hasY || code.hasZ);
+                            if (code.hasX || homeAll) { xOffset = 0; x = 0; hasXHome = true; }
+                            if (code.hasY || homeAll) { yOffset = 0; y = 0; hasYHome = true; }
+                            if (code.hasZ || homeAll) { zOffset = 0; z = 0; hasZHome = true; }
+                            if (code.hasE) { eOffset = 0; e = 0; emax = 0; }
+                            if (eventPosChanged != null)
+                                Main.main.Invoke(eventPosChanged, code, x, y, z);
+                        }
+                        break;
+                    case 162:
+                        {
+                            bool homeAll = !(code.hasX || code.hasY || code.hasZ);
+                            if (code.hasX || homeAll) { xOffset = 0; x = Main.printerSettings.PrintAreaWidth; hasXHome = true; }
+                            if (code.hasY || homeAll) { yOffset = 0; y = Main.printerSettings.PrintAreaDepth; hasYHome = true; }
+                            if (code.hasZ || homeAll) { zOffset = 0; z = Main.printerSettings.PrintAreaHeight; hasZHome = true; }
+                            if (eventPosChanged != null)
+                                Main.main.Invoke(eventPosChanged, code, x, y, z);
+                        }
                         break;
                     case 90:
                         relative = false;

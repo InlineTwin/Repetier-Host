@@ -21,6 +21,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using RepetierHost.model;
 using RepetierHost.view;
@@ -46,6 +47,7 @@ namespace RepetierHost
         public GCodeVisual jobVisual = new GCodeVisual();
         public GCodeVisual printVisual = null;
         public static GCodeGenerator generator = null;
+        public string basicTitle = "";
         public Main()
         {
             repetierKey = Registry.CurrentUser.CreateSubKey("Software\\Repetier");
@@ -76,7 +78,7 @@ namespace RepetierHost
             printPreview.AutoUpdateable = true;
             printVisual = new GCodeVisual(conn.analyzer);
             printPreview.models.AddLast(printVisual);
-
+            basicTitle = Text;
         }
         public void PrinterChanged(RegistryKey pkey,bool printerChanged)
         {
@@ -85,6 +87,11 @@ namespace RepetierHost
                 textGCodePrepend.Text = (string)pkey.GetValue("gcodePrepend", textGCodePrepend.Text);
                 textGCodeAppend.Text = (string)pkey.GetValue("gcodeAppend", textGCodeAppend.Text);
             }
+        }
+        public string Title
+        {
+            set { Text = basicTitle + " - " + value; }
+            get { return Text; }
         }
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -113,6 +120,8 @@ namespace RepetierHost
         {
             if (openGCode.ShowDialog() == DialogResult.OK)
             {
+                FileInfo f = new FileInfo(openGCode.FileName);
+                Title = f.Name;
                 if (openGCode.FileName.EndsWith(".stl"))
                 {
                     skeinforge.RunSlice(openGCode.FileName); // Slice it and load
